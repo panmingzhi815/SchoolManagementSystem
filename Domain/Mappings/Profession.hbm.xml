@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+   assembly="Domain"
+   namespace="Domain.Entities">
+    <class name ="Profession">
+        <id name="Id">
+            <generator class ="uuid.hex"/>
+        </id>
+        <property name ="Sn"/>
+        <property name ="Name"/>
+        <property name ="SimpleDescript"/>
+        <property name ="FullDescript"/>
+        <bag name="CouresList">
+            <key column="Profession"/>
+            <one-to-many class="Coures"/>
+        </bag>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+   assembly="Domain"
+   namespace="Domain.Entities">
+    <class name="Person" abstract="true">
+        <id name="Id">
+            <generator class="uuid.hex"/>
+        </id>
+        <property name="Sn"/>
+        <property name="Name"/>
+        <property name="Birth"/>
+        <property name="Telphone"/>
+        <property name="Address"/>
+        <property name="Sex"/>
+        <property name="Nation"/>
+        <many-to-one name="Department" class="Department"/>
+    </class>
+    <union-subclass name="Employee" extends="Person" table="Employee">
+    </union-subclass>    
+    <union-subclass name="Student" extends="Person" table="Student">
+        <many-to-one name="ClassGrade" class="ClassGrade"/>
+    </union-subclass>
+</hibernate-mapping>

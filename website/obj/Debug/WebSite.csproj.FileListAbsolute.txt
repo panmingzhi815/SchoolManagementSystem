@@ -1,0 +1,13 @@
+I:\GitHub\SchoolManagementSystem\website\bin\website.dll
+I:\GitHub\SchoolManagementSystem\website\bin\website.pdb
+I:\GitHub\SchoolManagementSystem\website\obj\Debug\ResolveAssemblyReference.cache
+I:\GitHub\SchoolManagementSystem\website\obj\Debug\website.dll
+I:\GitHub\SchoolManagementSystem\website\obj\Debug\website.pdb
+I:\GitHub\SchoolManagementSystem\website\bin\DataService.dll
+I:\GitHub\SchoolManagementSystem\website\bin\Domain.dll
+I:\GitHub\SchoolManagementSystem\website\bin\DataService.pdb
+I:\GitHub\SchoolManagementSystem\website\bin\Domain.pdb
+I:\GitHub\SchoolManagementSystem\website\bin\Remotion.Data.Linq.dll
+I:\GitHub\SchoolManagementSystem\website\bin\Iesi.Collections.dll
+I:\GitHub\SchoolManagementSystem\website\bin\Antlr3.Runtime.dll
+I:\GitHub\SchoolManagementSystem\website\bin\NHibernate.dll

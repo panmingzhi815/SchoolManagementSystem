@@ -1,0 +1,14 @@
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\DataService.dll
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\DataService.pdb
+I:\GitHub\SchoolManagementSystem\DataService\obj\Debug\ResolveAssemblyReference.cache
+I:\GitHub\SchoolManagementSystem\DataService\obj\Debug\DataService.dll
+I:\GitHub\SchoolManagementSystem\DataService\obj\Debug\DataService.pdb
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Antlr3.Runtime.dll
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Castle.Core.dll
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Domain.dll
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Iesi.Collections.dll
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\NHibernate.ByteCode.Castle.dll
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\NHibernate.dll
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\nunit.framework.dll
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Remotion.Data.Linq.dll
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Domain.pdb
