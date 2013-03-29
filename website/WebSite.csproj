@@ -371,6 +371,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="control\Handler1.ashx" />
+    <Content Include="images\default_head.gif" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataService\DataService.csproj">
