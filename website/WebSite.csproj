@@ -357,9 +357,6 @@
     <Compile Include="asp\userLogin.aspx.designer.cs">
       <DependentUpon>userLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="control\Handler1.ashx.cs">
-      <DependentUpon>Handler1.ashx</DependentUpon>
-    </Compile>
     <Compile Include="asp\main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,10 +364,21 @@
     <Compile Include="asp\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="control\DepartmentControl.ashx.cs">
+      <DependentUpon>DepartmentControl.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="control\StudentControl.ashx.cs">
+      <DependentUpon>StudentControl.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="control\TeacherControl.ashx.cs">
+      <DependentUpon>TeacherControl.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="control\UserControl.ashx.cs">
+      <DependentUpon>UserControl.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="control\Handler1.ashx" />
     <Content Include="images\default_head.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -384,7 +392,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="control\UserControl.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="control\StudentControl.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="control\TeacherControl.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="control\DepartmentControl.ashx" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="uploadFile\file\" />
+    <Folder Include="uploadFile\headImg\" />
+    <Folder Include="uploadFile\newsImg\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -401,7 +424,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>60177</DevelopmentServerPort>
+          <DevelopmentServerPort>53856</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

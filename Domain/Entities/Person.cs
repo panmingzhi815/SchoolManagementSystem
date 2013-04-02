@@ -25,13 +25,25 @@ namespace Domain.Entities
             get;
             set;
         }
+        //身份证
+        public virtual string IDcode
+        {
+            get;
+            set;
+        }
         //出生日期
         public virtual string Birth
         {
             get;
             set;
         }
-        //电话
+        //移动电话
+        public virtual string MobilePhone
+        {
+            get;
+            set;
+        }
+        //固定电话
         public virtual string Telphone
         {
             get;
@@ -57,6 +69,18 @@ namespace Domain.Entities
         }
         //单位
         public virtual Department Department
+        {
+            get;
+            set;
+        }
+        //单位
+        public virtual DateTime EntryTime
+        {
+            get;
+            set;
+        }
+        //图片
+        public virtual string HeadImage
         {
             get;
             set;

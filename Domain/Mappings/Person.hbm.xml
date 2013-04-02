@@ -8,16 +8,21 @@
         </id>
         <property name="Sn"/>
         <property name="Name"/>
+        <property name="IDcode"/>
         <property name="Birth"/>
+        <property name="MobilePhone"/>
         <property name="Telphone"/>
         <property name="Address"/>
         <property name="Sex"/>
         <property name="Nation"/>
+        <property name="EntryTime"/>
+        <property name="HeadImage"/>
         <many-to-one name="Department" class="Department"/>
     </class>
     <union-subclass name="Employee" extends="Person" table="Employee">
     </union-subclass>    
     <union-subclass name="Student" extends="Person" table="Student">
         <many-to-one name="ClassGrade" class="ClassGrade"/>
+        <many-to-one name="Profession" class="Profession"/>
     </union-subclass>
 </hibernate-mapping>

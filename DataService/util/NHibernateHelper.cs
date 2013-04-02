@@ -9,18 +9,20 @@ namespace DataService.util
 {
     class NHibernateHelper
     {
-        private ISessionFactory _sessionFactory;
-        public NHibernateHelper()
+        private static ISessionFactory _sessionFactory;
+
+        private static ISessionFactory GetSessionFactory()
         {
-            _sessionFactory = GetSessionFactory();
+            if (_sessionFactory == null) { 
+                return (new Configuration()).Configure().BuildSessionFactory();
+            }
+            return _sessionFactory;
+            
         }
-        private ISessionFactory GetSessionFactory()
+
+        public static ISession GetSession()
         {
-            return (new Configuration()).Configure().BuildSessionFactory();
-        }
-        public ISession GetSession()
-        {
-            return _sessionFactory.OpenSession();
+            return GetSessionFactory().OpenSession();
         }
     }
 }

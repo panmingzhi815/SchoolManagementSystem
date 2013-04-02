@@ -17,7 +17,9 @@ namespace WebSite.asp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] == null || Session["password"] == null) {
+                Response.Redirect("/asp/userLogin.aspx");
+            }
         }
     }
 }

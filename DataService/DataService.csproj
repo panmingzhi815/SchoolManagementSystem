@@ -55,7 +55,13 @@
     <Compile Include="dao\CouresDAO.cs" />
     <Compile Include="dao\DepartmentDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="service\BaseService.cs" />
+    <Compile Include="service\basic\BaseService.cs" />
+    <Compile Include="service\basic\BaseServiceImpl.cs" />
+    <Compile Include="service\basic\ServiceException.cs" />
+    <Compile Include="service\dao\DepartmentService.cs" />
+    <Compile Include="service\dao\StudentService.cs" />
+    <Compile Include="service\dao\TeacherService.cs" />
+    <Compile Include="service\dao\UserService.cs" />
     <Compile Include="util\NHibernateHelper.cs" />
   </ItemGroup>
   <ItemGroup>

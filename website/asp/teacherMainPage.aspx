@@ -150,7 +150,7 @@
                      <td>民　　族</td>
                     <td><input type="text"/></td>
                      <td>头像上传</td>
-                    <td><input id="headImgFile" type="file" style=" max-width:70px" size="2" onchange="changeHead()"/></td>
+                    <td><input id="headImgFile" name="headImgFile" type="file" style=" max-width:70px" size="2" onchange="changeHead()"/></td>
                 </tr>
                 <tr>
                     <td>移动电话</td>

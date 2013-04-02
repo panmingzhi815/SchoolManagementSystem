@@ -14,5 +14,12 @@ namespace Domain.Entities
             set;
         }
 
+        //所属班级
+        public virtual Profession Profession
+        {
+            get;
+            set;
+        }
+
     }
 }

@@ -12,6 +12,8 @@
 
     <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
 
+    <script type="text/javascript" src="/Jscript/locale/easyui-lang-zh_CN.js"></script>
+
     <script type="text/javascript" src='/Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
 
     <style type="text/css">
@@ -26,13 +28,34 @@
         }
         table input
         {
-            width:120px;
+            width: 120px;
         }
-        
-        .table{border-collapse:collapse; font-size:13px; height:24px; line-height:24px; color:#000000; text-align:center;}
-        .table tr th{background:#000; color:#FFF; font-size:13px; height:24px; line-height:24px;}
-        .table tr th.th_border{border-right:solid 1px #FFF; border-left:solid 1px #aabbcc;}
-        .table tr td{border:solid 1px #aabbcc;}
+        .table
+        {
+            border-collapse: collapse;
+            font-size: 13px;
+            height: 24px;
+            line-height: 24px;
+            color: #000000;
+            text-align: center;
+        }
+        .table tr th
+        {
+            background: #000;
+            color: #FFF;
+            font-size: 13px;
+            height: 24px;
+            line-height: 24px;
+        }
+        .table tr th.th_border
+        {
+            border-right: solid 1px #FFF;
+            border-left: solid 1px #aabbcc;
+        }
+        .table tr td
+        {
+            border: solid 1px #aabbcc;
+        }
     </style>
 </head>
 <body class="easyui-layout">
@@ -82,20 +105,22 @@
                         </select>
                     </td>
                     <td>
-                    <a class="easyui-linkbutton" iconCls="icon-search" href="###">搜索</a>
-                    <a class="easyui-linkbutton" iconCls="icon-reload" href="###">刷新</a>
+                        <a class="easyui-linkbutton" iconcls="icon-search" href="###">搜索</a> <a class="easyui-linkbutton"
+                            iconcls="icon-reload" href="###">刷新</a>
                     </td>
                 </tr>
             </table>
         </fieldset>
     </div>
-        <div id="toolbar">  
-        <a id="newUserBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true"">添加</a>  
-        <a id="editUserBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true")">修改</a>  
-        <a id="destroyUserBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true"">删除</a>  
-    </div>  
+    <div id="toolbar">
+        <a id="newUserBtn" href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-add"
+            plain="true"">添加</a> <a id="editUserBtn" href="javascript:void(0)" class="easyui-linkbutton"
+                iconcls="icon-edit" plain="true")">修改</a> <a id="destroyUserBtn" href="javascript:void(0)"
+                    class="easyui-linkbutton" iconcls="icon-remove" plain="true"">删除</a>
+    </div>
     <div region="center" title="学生管理" border="false">
-        <table class="easyui-datagrid" url="datagrid_data2.json" border="false" fit="true" toolbar="#toolbar" pagination="true" rownumbers="true" singleSelect="true">
+        <table class="easyui-datagrid" url="datagrid_data2.json" border="false" fit="true"
+            toolbar="#toolbar" pagination="true" rownumbers="true" singleselect="true">
             <thead>
                 <tr>
                     <th field="sn" width="120">
@@ -126,68 +151,139 @@
             </thead>
         </table>
     </div>
-    
-    <div id="w" class="easyui-window" title="添加-修改" closed="true" style="padding:5px;">  
-            <table class="table" style="width:100%;height:100%">
-                <tr>
-                    <td>学　　号</td>
-                    <td><input type="text"/></td>
-                    <td colspan="2" rowspan="4" align="center">
-                        <img id="headImg" width="100" height="100" src="/images/default_head.gif"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>姓　　名</td>
-                    <td><input type="text"/></td>
-                </tr>
-                <tr>
-                     <td>身 份 证</td>
-                    <td><input type="text"/></td>
-                </tr>
-                 <tr>
-                    <td>性　　别</td>
-                    <td><input type="text"/></td>
-                </tr>
-                <tr>
-                     <td>民　　族</td>
-                    <td><input type="text"/></td>
-                     <td>头像上传</td>
-                    <td><input id="headImgFile" type="file" style=" max-width:70px" size="2" onchange="changeHead()"/></td>
-                </tr>
-                <tr>
-                    <td>院　　系</td>
-                    <td><input type="text"/></td>
-                     <td>入职时间</td>
-                    <td><input type="text"/></td>
-                </tr>
-                <tr>
-                    <td>移动电话</td>
-                    <td><input type="text"/></td>
-                     <td>家庭固话</td>
-                    <td><input type="text"/></td>
-                </tr>
-                <tr>
-                    <td>家庭地址</td>
-                    <td colspan="3"><input type="text" style="width:98%"/></td>
-                </tr>
-                <tr>
-                    <td colspan="4" align="center" style=" padding:10 10 10 10">
-                        <a id="dialogSaveBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-save" plain="true"">保存</a>  
-                        <a id="dialogCancelBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" plain="true"">取消</a>  
-                    </td>
-                </tr>
-            </table>
-    </div>  
+    <div id="w" class="easyui-window" closed="true" style="padding: 5px;">
+        <form id="editForm" style="margin: 0 0 0 0;" method="post" enctype="multipart/form-data">
+        <table class="table" style="width: 100%; height: 100%">
+            <tr>
+                <td>
+                    学 号
+                </td>
+                <td>
+                    <input name='Sn' type="text" />
+                </td>
+                <td colspan="2" rowspan="4" align="center">
+                    <img alt='' id="headImg" width="100" height="100" style="border: solid 1px #aabbcc"
+                        src="/images/default_head.gif" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    姓 名
+                </td>
+                <td>
+                    <input name='Name' type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    身 份 证
+                </td>
+                <td>
+                    <input name='IDcode' type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    性 别
+                </td>
+                <td>
+                    <input name='Sex' type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    民 族
+                </td>
+                <td>
+                    <input name='Nation' type="text" />
+                </td>
+                <td>
+                    头像上传
+                </td>
+                <td>
+                    <input id="headImgFile" runat="server" name="headImgFile" type="file" style="max-width: 70px;"
+                        size="2" onchange="changeHead()" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    院 系
+                </td>
+                <td>
+                    <input name='Department' type="text" />
+                </td>
+                <td>
+                    入校时间
+                </td>
+                <td>
+                    <input name='EntryTime' class="easyui-datebox" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    专业
+                </td>
+                <td>
+                    <input name="Profession" class="easyui-combobox" />
+                </td>
+                <td>
+                    班级
+                </td>
+                <td>
+                    <input name="ClassGrade" class="easyui-combobox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    移动电话
+                </td>
+                <td>
+                    <input name='Telphone' type="text" />
+                </td>
+                <td>
+                    家庭固话
+                </td>
+                <td>
+                    <input name='MobilePhone' type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    家庭地址
+                </td>
+                <td colspan="3">
+                    <input name='Address' type="text" style="width: 98%" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center" style="padding: 10 10 10 10">
+                    <a id="dialogSaveBtn" href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-save"
+                        plain="true"">保存</a> <a id="dialogCancelBtn" href="javascript:void(0)" class="easyui-linkbutton"
+                            iconcls="icon-cancel" plain="true"">取消</a>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
 </body>
 </html>
 
 <script type="text/javascript">
     $(function(){
         $("#newUserBtn").click(function(){
-            $('#w').window('open')
+           $('#w').window({  
+            title:'添加',  
+            modal:true  
+           }); 
+            $('#w').window('open');
+
         });
         $("#editUserBtn").click(function(){
-            $('#w').window('open')
+            $('#w').window({  
+                title:'修改',  
+                modal:true  
+            }); 
+            $('#w').window('open');
         });
         $("#destroyUserBtn").click(function(){
             
@@ -196,14 +292,31 @@
             $("#headImg").attr("src",$(this).val());
         });
         $("#dialogSaveBtn").click(function(){
-            
+            $("#method").val("addStudent");
+            $('#editForm').submit();
         });
         $("#dialogCancelBtn").click(function(){
-            
+            $('#w').window('close');
         });
+        
+        $('#editForm').form({  
+                url:'/control/StudentControl.ashx?method=addStudent',
+                onSubmit: function(){ 
+                    return $('#editForm').form('validate');
+                },  
+                success:function(data){ 
+                    if(data == "1"){
+                      alert("修改成功");
+                    }else if(data =="0"){
+                      alert("修改失败");
+                    }
+                }  
+            });
     })
     
     function changeHead(){
         $("#headImg").attr("src",$("#headImgFile").val());
     }
+    
 </script>
+
