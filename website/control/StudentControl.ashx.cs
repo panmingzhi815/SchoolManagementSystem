@@ -71,7 +71,7 @@ namespace Domain.control
                 {
                     PropertyInfo property = o.GetType().GetProperty(s);
                     if (property != null)
-                        property.SetValue(o, context.Request.Form.GetValues(s), null);
+                        property.SetValue(o, context.Request.Form.Get(s), null);
                 }
                 catch (Exception e)
                 {

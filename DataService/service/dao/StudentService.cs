@@ -9,5 +9,9 @@ namespace DataService.service.dao
     public class StudentService : BaseServiceImpl
     {
 
+        internal void get()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

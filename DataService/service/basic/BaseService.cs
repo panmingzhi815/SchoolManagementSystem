@@ -11,7 +11,7 @@ namespace DataService.service.basic
     {
         string jsonPage(int page,int row,Object obj);
 
-        Object get(string entityName, string id);
+        Object get(Type t, string id);
 
         Object add(Object obj);
 
