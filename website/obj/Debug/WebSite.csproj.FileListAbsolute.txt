@@ -10,6 +10,7 @@ I:\GitHub\SchoolManagementSystem\website\bin\Remotion.Data.Linq.dll
 I:\GitHub\SchoolManagementSystem\website\bin\Iesi.Collections.dll
 I:\GitHub\SchoolManagementSystem\website\bin\Antlr3.Runtime.dll
 I:\GitHub\SchoolManagementSystem\website\bin\NHibernate.dll
-I:\GitHub\SchoolManagementSystem\website\bin\DataService.exe
 I:\GitHub\SchoolManagementSystem\website\bin\hibernate.cfg.xml
 I:\GitHub\SchoolManagementSystem\website\bin\Logging.dll
+I:\GitHub\SchoolManagementSystem\website\bin\DataService.dll
+I:\GitHub\SchoolManagementSystem\website\bin\Newtonsoft.Json.dll

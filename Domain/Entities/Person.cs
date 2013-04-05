@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Domain.Entities
 {
@@ -68,11 +69,13 @@ namespace Domain.Entities
             set;
         }
         //单位
+        [JsonIgnore]
         public virtual Department Department
         {
             get;
             set;
         }
+        public virtual string DpartmentName { get; set; }
         //单位
         public virtual DateTime EntryTime
         {

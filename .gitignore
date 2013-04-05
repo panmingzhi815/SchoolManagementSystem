@@ -7,7 +7,8 @@
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
+Debug/
+bin/
 [Rr]elease/
 *_i.c
 *_p.c
@@ -27,5 +28,4 @@
 *.vspscc
 .builds
 *.dotCover
-/obj
 

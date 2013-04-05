@@ -12,11 +12,9 @@ namespace DataService.test.service
         public static void Main(string[] args) {
             Student s = new Student();
             s.Name = "pmz";
+            s.EntryTime = DateTime.Now;
             StudentService ss = new StudentService();
             ss.add(s);
-            Console.WriteLine(s.Id);
-
-            Console.ReadLine();
         }
     }
 }

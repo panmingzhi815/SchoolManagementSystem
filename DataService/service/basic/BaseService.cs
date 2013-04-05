@@ -9,8 +9,6 @@ namespace DataService.service.basic
 {
     interface BaseService
     {
-        string jsonPage(int page,int row,Object obj);
-
         Object get(Type t, string id);
 
         Object add(Object obj);

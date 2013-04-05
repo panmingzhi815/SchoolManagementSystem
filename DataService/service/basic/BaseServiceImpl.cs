@@ -6,6 +6,7 @@ using NHibernate;
 using DataService.util;
 using Shinater.Logging;
 using Domain.Entities;
+using NHibernate.Criterion;
 
 namespace DataService.service.basic
 {
@@ -14,12 +15,6 @@ namespace DataService.service.basic
         Logger logger = Logger.GetLogger("BaseServiceImpl");
         #region BaseService Members
 
-        public string jsonPage(int page, int row, object obj)
-        {
-            return "";
-
-        }
-
         public Object get(Type t, string id)
         {
             return getSession().Get(t, id);
@@ -27,51 +22,64 @@ namespace DataService.service.basic
 
         public Object add(object obj)
         {
-            using(ITransaction tx = getSession().BeginTransaction())
-            try
-            {
-                logger.Log(Level.Config, "保存");
-                Object o = getSession().Save(obj);
-                getSession().Flush();
-                tx.Commit();
-                return o;
-            }
-            catch (Exception e)
-            {
-                tx.Rollback();
-                logger.Log(Level.Config, e.Message);
-                throw new ServiceException("保存失败！");
-            }
+            ISession session = getSession();
+            using (ITransaction tx = session.BeginTransaction())
+                try
+                {
+                    Object o = session.Save((Student)obj);
+                    session.Flush();
+                    tx.Commit();
+                    return o;
+                }
+                catch (Exception e)
+                {
+                    tx.Rollback();
+                    throw new ServiceException("保存失败！" + e.Message);
+                }
         }
 
         public void del(object obj)
         {
-            try
-            {
-                getSession().Delete(obj);
-            }
-            catch (Exception e)
-            {
-                throw new ServiceException("删除失败！");
-            }
+            ISession session = getSession();
+            using (ITransaction tx = session.BeginTransaction())
+                try
+                {
+                    session.Delete(obj);
+                    tx.Commit();
+                }
+                catch (Exception e)
+                {
+                    tx.Rollback();
+                    throw new ServiceException("删除失败！" + e.Message);
+                }
         }
 
         public void updata(object obj)
         {
-            try
-            {
-                getSession().Update(obj);
-            }
-            catch (Exception e)
-            {
-                throw new ServiceException("修改失败！");
-            }
+            ISession session = getSession();
+            using (ITransaction tx = session.BeginTransaction())
+                try
+                {
+                    session.Update(obj);
+                    tx.Commit();
+
+                }
+                catch (Exception e)
+                {
+                    tx.Rollback();
+                    throw new ServiceException("修改失败！" + e.Message);
+                }
 
         }
 
         public ISession getSession()
         {
             return NHibernateHelper.GetSession();
+        }
+
+        public int getCount(ICriteria c) { 
+           c.SetProjection(Projections.RowCount());
+           return (int)c.UniqueResult();
         }
 
         #endregion

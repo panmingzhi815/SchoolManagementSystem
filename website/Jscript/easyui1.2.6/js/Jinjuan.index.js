@@ -192,6 +192,7 @@ function addTab(subtitle,url,icon){
 	}else{
 		$('#tabs').tabs('select',subtitle);
 		$('#mm-tabupdate').click();
+		closeTab("refresh");
 	}
 	tabClose();
 }
@@ -317,8 +318,18 @@ function closeTab(action)
 
 
 //弹出信息窗口 title:标题 msgString:提示信息 msgType:信息类型 [error,info,question,warning]
-function msgShow(title, msgString, msgType) {
+function msgAlert(title, msgString, msgType) {
 	$.messager.alert(title, msgString, msgType);
+}
+
+//弹出信息窗口 title:标题 msgString:提示信息 msgType:信息类型 [error,info,question,warning]
+function msgShow(title, msgString) {
+	$.messager.show({
+	title:title,
+	msg:msgString,
+	timeout:3000,
+	showType:'show'
+});
 }
 
 $.fn.datebox.defaults.formatter = function(date){

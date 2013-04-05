@@ -97,11 +97,11 @@
 
 <div id="loading-mask" style="position:absolute;top:0px; left:0px; width:100%; height:100%; background:#D2E0F2; z-index:20000">
 <div id="pageloading" style="position:absolute; top:50%; left:50%; margin:-120px 0px 0px -120px; text-align:center;  border:2px solid #8DB2E3; width:200px; height:40px;  font-size:14px;padding:10px; font-weight:bold; background:#fff; color:#15428B;"> 
-    <img src="Jscript/easyui1.2.6/images/loading.gif" align="absmiddle" /> 正在加载中,请稍候...</div>
+    <img src="/Jscript/easyui1.2.6/images/loading.gif" align="absmiddle" /> 正在加载中,请稍候...</div>
 </div>
 
     <div region="north" split="true" border="false" style="overflow: hidden; height: 50px;
-        background: url(images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
+        background: url('/images/layout-browser-hd-bg.gif') #7f99be repeat-x center 50%;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
         <span style="float:right; padding-right:20px;vertical-align: bottom; line-height:56px" class="head">欢迎 方金娟 <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
         <span style="padding-left:10px; font-size: 26px; vertical-align: middle; line-height:46px"> 普通高等院校学籍管理系统 </span>

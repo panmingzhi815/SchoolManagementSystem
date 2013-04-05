@@ -13,8 +13,8 @@ namespace DataService.util
 
         private static ISessionFactory GetSessionFactory()
         {
-            if (_sessionFactory == null) { 
-                return (new Configuration()).Configure().BuildSessionFactory();
+            if (_sessionFactory == null) {
+                _sessionFactory = (new Configuration()).Configure().BuildSessionFactory();
             }
             return _sessionFactory;
             
