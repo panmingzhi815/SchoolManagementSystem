@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using NHibernate;
 using DataService.util;
-using Shinater.Logging;
 using Domain.Entities;
 using NHibernate.Criterion;
 
@@ -12,7 +11,6 @@ namespace DataService.service.basic
 {
     public abstract class BaseServiceImpl : BaseService
     {
-        Logger logger = Logger.GetLogger("BaseServiceImpl");
         #region BaseService Members
 
         public Object get(Type t, string id)

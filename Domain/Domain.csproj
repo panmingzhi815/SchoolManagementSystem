@@ -50,20 +50,23 @@
     <Compile Include="Entities\Coures.cs" />
     <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Faculty.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Profession.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappings\ClassGrade.hbm.xml" />
     <EmbeddedResource Include="Mappings\Coures.hbm.xml" />
     <EmbeddedResource Include="Mappings\Department.hbm.xml" />
     <EmbeddedResource Include="Mappings\Person.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Profession.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SharedLibs\Newtonsoft.Json.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SharedLibs\nhibernate-configuration.xsd" />
+    <None Include="SharedLibs\nhibernate-mapping.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

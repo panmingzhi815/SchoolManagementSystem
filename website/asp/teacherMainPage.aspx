@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="teacherMainPage.aspx.cs" Inherits="WebSite.asp.teacherManager" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="teacherMainPage.aspx.cs"
+    Inherits="WebSite.asp.teacherManager" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,207 +14,72 @@
 
     <script type="text/javascript" src='/Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
 
+    <link rel="stylesheet" href="'/Jscript/kindeditor-4.1.6/themes/default/default.css" />
+
+    <script charset="utf-8" src="/Jscript/kindeditor-4.1.6/kindeditor-min.js"></script>
+
+    <script charset="utf-8" src="/Jscript/kindeditor-4.1.6/lang/zh_CN.js"></script>
+
     <style type="text/css">
-        legend
+        form
         {
-            font-size: 12px;
-            color: Blue;
+            margin: 0;
         }
-        fieldset
+        textarea
         {
-            margin: 3px;
+            display: block;
         }
-        table input
-        {
-            width:120px;
-        }
-        
-        .table{border-collapse:collapse; font-size:13px; height:24px; line-height:24px; color:#000000; text-align:center;}
-        .table tr th{background:#000; color:#FFF; font-size:13px; height:24px; line-height:24px;}
-        .table tr th.th_border{border-right:solid 1px #FFF; border-left:solid 1px #aabbcc;}
-        .table tr td{border:solid 1px #aabbcc;}
     </style>
 </head>
 <body class="easyui-layout">
-    <div region="north" style="overflow: hidden;">
-        <fieldset>
-            <legend>查询</legend>
-            <table>
-                <tr>
-                    <td>
-                        姓名
-                    </td>
-                    <td>
-                        <input type="text" style="width: 100px" />
-                    </td>
-                    <td>
-                        性别
-                    </td>
-                    <td>
-                        <select style="width: 50px">
-                            <option>男</option>
-                            <option>女</option>
-                        </select>
-                    </td>
-                    <td>
-                        身份证
-                    </td>
-                    <td>
-                        <input type="text" style="width: 150px" />
-                    </td>
-                    <td>
-                        院系
-                    </td>
-                    <td>
-                        <select style="width: 120px">
-                            <option>电子系</option>
-                            <option>计算机系</option>
-                        </select>
-                    </td>
-                    <td>
-                    <a class="easyui-linkbutton" iconCls="icon-search" href="###">搜索</a>
-                    <a class="easyui-linkbutton" iconCls="icon-reload" href="###">刷新</a>
-                    </td>
-                </tr>
-            </table>
-        </fieldset>
+    <div region="west" title="院系专业列表" style="width: 200px">
+        <ul id="tt">
+        </ul>
     </div>
-        <div id="toolbar">  
-        <a id="newUserBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true"">添加</a>  
-        <a id="editUserBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true")">修改</a>  
-        <a id="destroyUserBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true"">删除</a>  
-    </div>  
-    <div region="center" title="教员管理" border="false">
-        <table class="easyui-datagrid" url="datagrid_data2.json" border="false" fit="true" toolbar="#toolbar" pagination="true" rownumbers="true" singleSelect="true" >
-            <thead>
-                <tr>
-                    <th field="sn" width="120">
-                        编号
-                    </th>
-                    <th field="name" width="100">
-                        姓名
-                    </th>
-                    <th field="sex" width="120">
-                        性别
-                    </th>
-                    <th field="birth" width="100">
-                        身份证
-                    </th>
-                    <th field="birth" width="80">
-                        出生日期
-                    </th>
-                    <th field="nation" width="70">
-                        民族
-                    </th>
-                    <th field="telphone" width="100">
-                        学历
-                    </th>
-                    <th field="telphone" width="100">
-                        毕业院校
-                    </th>
-                    <th field="telphone" width="100">
-                        联系电话
-                    </th>
-                    <th field="telphone" width="100">
-                        院系
-                    </th>
-                    <th field="telphone" width="100">
-                        入职时间
-                    </th>
-                </tr>
-            </thead>
-        </table>
+    <div region="center" title="详情" border="false">
+        <form id="form">
+            <div style="width: 100%">
+                名称<input type="text" /></div>
+            <div style="width: 100%">
+                编码<input type="text" /></div>
+            <div style="width: 100%">
+                图片<input type="file" /></div>
+            <div style="width: 100%">
+                <textarea name="SimpleDescript" style="width: 100%; height: 100px; visibility: hidden;">KindEditor</textarea>
+            </div>
+            <div style="width: 100%">
+               <textarea name="DetailDescript" style="width: 100%; height: 100%; visibility: hidden;">KindEditor</textarea>
+            </div>
+        </form>
     </div>
-    
-    <div id="w" class="easyui-window" title="添加-修改" closed="true" style="padding:5px;">  
-            <table class="table" style="width:100%;height:100%">
-                <tr>
-                    <td>学　　号</td>
-                    <td><input type="text"/></td>
-                    <td colspan="2" rowspan="4" align="center">
-                        <img id="headImg" width="100" height="100" src="/images/default_head.gif"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>姓　　名</td>
-                    <td><input type="text"/></td>
-                </tr>
-                <tr>
-                     <td>身 份 证</td>
-                    <td><input type="text"/></td>
-                </tr>
-                 <tr>
-                    <td>性　　别</td>
-                    <td><input type="text"/></td>
-                </tr>
-                <tr>
-                     <td>民　　族</td>
-                    <td><input type="text"/></td>
-                     <td>头像上传</td>
-                    <td><input id="headImgFile" name="headImgFile" type="file" style=" max-width:70px" size="2" onchange="changeHead()"/></td>
-                </tr>
-                <tr>
-                    <td>移动电话</td>
-                    <td><input type="text"/></td>
-                     <td>家庭固话</td>
-                    <td><input type="text"/></td>
-                </tr>
-                <tr>
-                    <td>院　　系</td>
-                    <td>
-                    <input id="Text2" class="easyui-combobox" name="dept" data-options="valueField:'id',textField:'text',url:'get_data.php'" />  
-                    </td>
-                     <td>入职时间</td>
-                    <td><input type="text"/></td>
-                </tr>
-                <tr>
-                    <td>学　　历</td>
-                    <td>    
-                    <input id="cc" class="easyui-combobox" name="dept" data-options="valueField:'id',textField:'text',url:'get_data.php'" />  
-                    </td>
-                     <td>毕业院校</td>
-                    <td>    
-                    <input id="Text1" class="easyui-combobox" name="dept"　data-options="valueField:'id',textField:'text',url:'get_data.php'" />  
-                    </td>
-                </tr>
-                <tr>
-                    <td>家庭地址</td>
-                    <td colspan="3"><input type="text" style="width:98%"/></td>
-                </tr>
-                <tr>
-                    <td colspan="4" align="center" style=" padding:10 10 10 10">
-                        <a id="dialogSaveBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-save" plain="true"">保存</a>  
-                        <a id="dialogCancelBtn" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" plain="true"">取消</a>  
-                    </td>
-                </tr>
-            </table>
-    </div>  
 </body>
 </html>
 
 <script type="text/javascript">
     $(function(){
-        $("#newUserBtn").click(function(){
-            $('#w').window('open')
-        });
-        $("#editUserBtn").click(function(){
-            $('#w').window('open')
-        });
-        $("#destroyUserBtn").click(function(){
-            
-        });
-        $("#headImgFile").change(function(){
-            $("#headImg").attr("src",$(this).val());
-        });
-        $("#dialogSaveBtn").click(function(){
-            
-        });
-        $("#dialogCancelBtn").click(function(){
-            
+        $('#tt').tree({  
+           url:'tree_data.json'  
         });
     })
     
-    function changeHead(){
-        $("#headImg").attr("src",$("#headImgFile").val());
-    }
+    var simpleEditor;
+    var DetailEditor;
+    KindEditor.ready(function(K) {
+	    simpleEditor = K.create('textarea[name="SimpleDescript"]', {
+		    resizeType : 1,
+		    allowPreviewEmoticons : false,
+		    allowImageUpload : false,
+		    items : [
+			    'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+			    'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+			    'insertunorderedlist']
+	    });
+	    
+	    DetailEditor = K.create('textarea[name="content"]', {
+					allowFileManager : true
+		});
+    });
+    
+    
 </script>
+

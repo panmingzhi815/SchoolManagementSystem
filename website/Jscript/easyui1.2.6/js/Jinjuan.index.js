@@ -17,7 +17,7 @@ var _menus = {
 		},
 		{
 			"menuid": "14",
-			"menuname": "院系信息",
+			"menuname": "机构信息",
 			"icon": "icon-role",
 			"url": "/asp/departmentMainPage.aspx"
 		}]

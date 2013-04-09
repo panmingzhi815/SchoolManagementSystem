@@ -121,7 +121,7 @@
                     class="easyui-linkbutton" iconcls="icon-remove" plain="true"">删除</a>
     </div>
     <div region="center" title="学生管理" border="false">
-        <table id="datagrid" idField="id" class="easyui-datagrid" url="/control/StudentControl.ashx?method=getStudents" border="false" fit="true"
+        <table id="datagrid" idField="Id" class="easyui-datagrid" url="/control/StudentControl.ashx?method=getStudents" border="false" fit="true"
             toolbar="#toolbar" pagination="true" rownumbers="true" singleselect="true">
             <thead>
                 <tr>
@@ -152,7 +152,8 @@
     </div>
     <div id="w" class="easyui-window" closed="true" style="padding: 5px;">
         <form id="editForm" action="/control/StudentControl.ashx" style="margin: 0 0 0 0;" method="post" enctype="multipart/form-data">
-        <input type="hidden"　id="method" name="method" value="addStudent" />
+        <input type="hidden" id="method" name="method" value="addStudent" />
+        <input type="hidden" id="Id" name="Id"/>
         <table id="table" class="table" style="width: 100%; height: 100%">
             <tr>
                 <td>
@@ -284,30 +285,29 @@
             if(!selected){
                msgAlert('提示','请选中一行后再执行此操作','warning');
             }else{
-            $('#w').window({  
-                title:'修改',  
-                modal:true  
-            }); 
-            $('#w').window('open');
-            $.ajax({
-                url: "/control/StudentControl.ashx?method=getStudent",
-                data: {
-                   Id: selected.Id
-                },
-                type:'get', 
-                success: function( data ) {
-                    if (data.length > 0) {
-                      $("#table").serializeJsonToForm(data);
-                      $("#method").val("updateStudent");
-                      alert($("#method").val());
-                    } else {
-                      msgAlert('提示','加载用户详细信息失败!','error');
-                    }
-                },
-                error : function() {      
-                   alert("异常！");    
-                } 
-            });
+                $('#w').window({  
+                    title:'修改',  
+                    modal:true  
+                }); 
+                $('#w').window('open');
+                $("#method").val("updateStudent");
+                $.ajax({
+                    url: "/control/StudentControl.ashx?method=getStudent",
+                    data: {
+                       Id: selected.Id
+                    },
+                    type:'get', 
+                    success: function( data ) {
+                        if (data.length > 0) {
+                          $("#table").serializeJsonToForm(data);
+                        } else {
+                          msgAlert('提示','加载用户详细信息失败!','error');
+                        }
+                    },
+                    error : function() {      
+                       alert("异常！");    
+                    } 
+                });
             }
         });
         $("#destroyUserBtn").click(function(){

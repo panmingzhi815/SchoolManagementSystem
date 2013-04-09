@@ -53,6 +53,18 @@
 	background:url('icons/tip.png') no-repeat;
 }
 
+.icon-department{
+	background:url('icons/department.png') no-repeat;
+}
+
+.icon-class{
+	background:url('icons/class.png') no-repeat;
+}
+
+.icon-profession{
+	background:url('icons/profession.png') no-repeat;
+}
+
 .icon-mini-add{
 	background:url('icons/mini_add.png') no-repeat 2px 2px;
 }

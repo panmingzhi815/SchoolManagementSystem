@@ -30,5 +30,69 @@ namespace Domain.control
                 return false;
             }
         }
+
+        public void getDepartmentList()
+        {
+
+        }
+
+        public void getDepartment()
+        {
+
+        }
+
+        public void addDepartment()
+        {
+
+        }
+
+        public void updateDepartment()
+        {
+
+        }
+
+        public void delDepartment()
+        {
+
+        }
+
+        public void getPrefessionList()
+        {
+
+        }
+
+        public void getPrefession()
+        {
+
+        }
+
+        public void addPrefession()
+        {
+
+        }
+
+        public void updatePrefession()
+        {
+
+        }
+
+        public void delPrefession()
+        {
+
+        }
+        public void getClassGradeList()
+        {
+
+        }
+
+        public void addClassGrade()
+        {
+
+        }
+
+        public void delClassGrade()
+        {
+
+        }
     }
 }

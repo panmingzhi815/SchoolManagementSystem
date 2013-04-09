@@ -2,17 +2,31 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
    assembly="Domain"
    namespace="Domain.Entities">
-    <class name ="Department">
+    <class name ="Department" abstract="true">
         <id name="Id">
             <generator class ="uuid.hex"/>
         </id>
         <property name ="Sn"/>
         <property name ="Name"/>
-        <property name ="Descript"/>
-        <many-to-one name="MasterEmployee" class="Employee" />
-        <bag name="SubEmployee">
-            <key column="Department"/>
-            <one-to-many class="Employee"/>
-        </bag>
+        <property name ="SimpleDescript"/>
+        <property name ="DetailDescript"/>
     </class>
+    <union-subclass name="Faculty" table="Faculty" extends="Department" >
+        <set name="Profession" table="Profession" cascade="all">
+            <key column="fid"></key>
+            <one-to-many class="Domain.Entities.Profession" />
+        </set>
+    </union-subclass>
+    <union-subclass name="Profession" table="Profession" extends="Department" >
+        <set name="ClassGrade" table="ClassGrade" cascade="all">
+            <key column="pid"></key>
+            <one-to-many class="Domain.Entities.ClassGrade" />
+        </set>
+    </union-subclass>
+    <union-subclass name="ClassGrade" table="ClassGrade" extends="Department" >
+       <set name="Student" table="Student" cascade="all">
+            <key column="cid"></key>
+            <one-to-many class="Domain.Entities.Student" />
+        </set>
+    </union-subclass>
 </hibernate-mapping>

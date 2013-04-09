@@ -25,24 +25,22 @@ namespace Domain.Entities
             get;
             set;
         }
-        //描述
-        public virtual string Descript
+       //描述图片
+        public virtual string DescriptImage { 
+            get;
+            set;
+        }
+        //简单描述
+        public virtual string SimpleDescript
         {
             get;
             set;
         }
-        //主管
-        public virtual Employee MasterEmployee
+        //详情描述
+        public virtual string DetailDescript
         {
             get;
             set;
         }
-        //多个副管
-        public virtual List<Employee> SubEmployee
-        {
-            get;
-            set;
-        }
-
     }
 }
