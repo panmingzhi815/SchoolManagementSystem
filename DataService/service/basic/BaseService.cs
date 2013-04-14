@@ -11,11 +11,9 @@ namespace DataService.service.basic
     {
         Object get(Type t, string id);
 
-        Object add(Object obj);
+        void save(Object obj);
 
         void del(Object obj);
-
-        void updata(Object obj);
 
         ISession getSession();
 

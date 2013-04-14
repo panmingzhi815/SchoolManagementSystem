@@ -51,7 +51,7 @@
                                     用户名
                                 </td>
                                 <td>
-                                    <input name="username" class="easyui-validatebox" required="true" validtype="length[1,20]">
+                                    <input name="username" value="admin" class="easyui-validatebox" required="true" validtype="length[1,20]">
                                 </td>
                             </tr>
                             <tr>
@@ -59,7 +59,7 @@
                                     密 码
                                 </td>
                                 <td>
-                                    <input name="password" class="easyui-validatebox" required="true" validtype="length[1,16]">
+                                    <input name="password" value="admin" class="easyui-validatebox" required="true" validtype="length[1,16]">
                                 </td>
                             </tr>
                             <tr>

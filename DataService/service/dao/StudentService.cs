@@ -22,10 +22,5 @@ namespace DataService.service.dao
             result[1] = c.List<Student>();
             return result;
         }
-
-        public object get(Type type, int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

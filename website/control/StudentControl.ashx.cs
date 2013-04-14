@@ -79,7 +79,7 @@ namespace Domain.control
                 }
                
                 StudentService s = new StudentService();
-                s.add(student);
+                s.save(student);
                 context.Response.Write("1");
             }
             catch (Exception e)
@@ -119,7 +119,7 @@ namespace Domain.control
                 }
                 
                 StudentService s = new StudentService();
-                s.updata(student);
+                s.save(student);
                 context.Response.Write("1");
             }
             catch (Exception e)

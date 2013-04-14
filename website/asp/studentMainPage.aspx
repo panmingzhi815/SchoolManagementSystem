@@ -12,7 +12,7 @@
 
     <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
 
-    <script type="text/javascript" src="/Jscript/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/locale/easyui-lang-zh_CN.js"></script>
 
     <script type="text/javascript" src='/Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
     
@@ -270,7 +270,7 @@
 </html>
 
 <script type="text/javascript">
-    $(function(){
+    $(function(){ 
         $("#newUserBtn").click(function(){
            $('#w').window({  
             title:'添加',  

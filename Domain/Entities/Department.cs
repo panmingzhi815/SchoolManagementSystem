@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain.Entities
 {
-   public  class Department
+   public class Department
     {
         //主键
         public virtual string Id

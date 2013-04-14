@@ -1,6 +1,6 @@
-﻿using NHibernate;
-using Domain.Entities;
+﻿using Domain.Entities;
 using System;
+using NHibernate;
 
 namespace DataService.dao
 {

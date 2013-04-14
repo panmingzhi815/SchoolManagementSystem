@@ -14,7 +14,7 @@ namespace DataService.test.service
             s.Name = "pmz";
             s.EntryTime = DateTime.Now;
             StudentService ss = new StudentService();
-            ss.add(s);
+            ss.save(s);
         }
     }
 }

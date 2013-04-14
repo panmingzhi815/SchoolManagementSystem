@@ -9,7 +9,8 @@
 # Build results
 Debug/
 bin/
-[Rr]elease/
+obj/
+Release/
 *_i.c
 *_p.c
 *.ilk

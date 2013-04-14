@@ -6,6 +6,7 @@ using NHibernate;
 using DataService.util;
 using Domain.Entities;
 using NHibernate.Criterion;
+using System.Reflection;
 
 namespace DataService.service.basic
 {
@@ -15,33 +16,49 @@ namespace DataService.service.basic
 
         public Object get(Type t, string id)
         {
-            return getSession().Get(t, id);
+            using (ISession session = getSession())
+            {
+                return session.Get(t, id);
+            }
         }
 
-        public Object add(object obj)
+        public void save(object obj)
         {
-            ISession session = getSession();
-            using (ITransaction tx = session.BeginTransaction())
+            using (ISession session = getSession())
+            {
+                ITransaction tx = null;
                 try
                 {
-                    Object o = session.Save((Student)obj);
+                    tx = session.BeginTransaction();
+                    PropertyInfo property = obj.GetType().GetProperty("Id");
+                    Object Id = property.GetValue(obj, null);
+                    if (Id == null || Id.Equals(""))
+                    {
+                        session.Save(obj);
+                    }
+                    else
+                    {
+                        session.Update(obj);
+                    }
                     session.Flush();
                     tx.Commit();
-                    return o;
                 }
                 catch (Exception e)
                 {
-                    tx.Rollback();
                     throw new ServiceException("保存失败！" + e.Message);
+                    tx.Rollback();
                 }
+            }
         }
 
         public void del(object obj)
         {
-            ISession session = getSession();
-            using (ITransaction tx = session.BeginTransaction())
+            using (ISession session = getSession())
+            {
+                ITransaction tx = null;
                 try
                 {
+                    tx = session.BeginTransaction();
                     session.Delete(obj);
                     tx.Commit();
                 }
@@ -50,24 +67,7 @@ namespace DataService.service.basic
                     tx.Rollback();
                     throw new ServiceException("删除失败！" + e.Message);
                 }
-        }
-
-        public void updata(object obj)
-        {
-            ISession session = getSession();
-            using (ITransaction tx = session.BeginTransaction())
-                try
-                {
-                    session.Update(obj);
-                    tx.Commit();
-
-                }
-                catch (Exception e)
-                {
-                    tx.Rollback();
-                    throw new ServiceException("修改失败！" + e.Message);
-                }
-
+            }
         }
 
         public ISession getSession()
@@ -75,9 +75,10 @@ namespace DataService.service.basic
             return NHibernateHelper.GetSession();
         }
 
-        public int getCount(ICriteria c) { 
-           c.SetProjection(Projections.RowCount());
-           return (int)c.UniqueResult();
+        public int getCount(ICriteria c)
+        {
+            c.SetProjection(Projections.RowCount());
+            return (int)c.UniqueResult();
         }
 
         #endregion

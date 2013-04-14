@@ -1,6 +1,8 @@
 I:\GitHub\SchoolManagementSystem\Domain\bin\Debug\Domain.dll
 I:\GitHub\SchoolManagementSystem\Domain\bin\Debug\Domain.pdb
+I:\GitHub\SchoolManagementSystem\Domain\bin\Debug\Iesi.Collections.dll
 I:\GitHub\SchoolManagementSystem\Domain\bin\Debug\Newtonsoft.Json.dll
+I:\GitHub\SchoolManagementSystem\Domain\bin\Debug\NHibernate.dll
 I:\GitHub\SchoolManagementSystem\Domain\obj\Debug\ResolveAssemblyReference.cache
 I:\GitHub\SchoolManagementSystem\Domain\obj\Debug\Domain.dll
 I:\GitHub\SchoolManagementSystem\Domain\obj\Debug\Domain.pdb

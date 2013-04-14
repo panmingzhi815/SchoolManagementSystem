@@ -7,15 +7,10 @@ using Newtonsoft.Json;
 
 namespace Domain.Entities
 {
-    public class Faculty : Department
+   public class School : Department
     {
-        [JsonIgnore]
-        public virtual School School { get; set; }
-
-        public virtual string SchoolName { get; set; }
-
-        [JsonIgnore]
-        public virtual ISet<Profession> professionList
+       [JsonIgnore]
+       public virtual ISet<Faculty> facultyList
         {
             set;
             get;

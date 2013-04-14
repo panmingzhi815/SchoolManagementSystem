@@ -31,7 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -49,10 +51,12 @@
     <Compile Include="Entities\ClassGrade.cs" />
     <Compile Include="Entities\Coures.cs" />
     <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\EasyuiTree.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\Faculty.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Profession.cs" />
+    <Compile Include="Entities\School.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,7 +66,9 @@
     <EmbeddedResource Include="Mappings\Person.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SharedLibs\Iesi.Collections.dll" />
     <Content Include="SharedLibs\Newtonsoft.Json.dll" />
+    <Content Include="SharedLibs\NHibernate.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SharedLibs\nhibernate-configuration.xsd" />

@@ -11,22 +11,30 @@
         <property name ="SimpleDescript"/>
         <property name ="DetailDescript"/>
     </class>
+    
+    <union-subclass name="School" table="School" extends="Department" >
+        <set name="facultyList" inverse="true" cascade="all">
+            <key column="sid"></key>
+            <one-to-many class="Domain.Entities.Faculty" />
+        </set>
+    </union-subclass>
+    
     <union-subclass name="Faculty" table="Faculty" extends="Department" >
-        <set name="Profession" table="Profession" cascade="all">
+        <set name="professionList" inverse="true">
             <key column="fid"></key>
             <one-to-many class="Domain.Entities.Profession" />
         </set>
+        <many-to-one name="School" class="Domain.Entities.School" column="Id" insert="false" update="false"/>
     </union-subclass>
+    
     <union-subclass name="Profession" table="Profession" extends="Department" >
-        <set name="ClassGrade" table="ClassGrade" cascade="all">
+        <set name="classGradeList" inverse="true">
             <key column="pid"></key>
             <one-to-many class="Domain.Entities.ClassGrade" />
         </set>
     </union-subclass>
+    
     <union-subclass name="ClassGrade" table="ClassGrade" extends="Department" >
-       <set name="Student" table="Student" cascade="all">
-            <key column="cid"></key>
-            <one-to-many class="Domain.Entities.Student" />
-        </set>
     </union-subclass>
+    
 </hibernate-mapping>
