@@ -44,7 +44,7 @@
         </ul>
     </div>
     <div region="center" title="详情" border="true" fit="true">
-        <form id="form" method="post" style="margin: 0; padding: 5px; line-height: 30px;">
+        <form id="form" enctype="multipart/form-data" method="post" style="margin: 0; padding: 5px; line-height: 30px;">
         <input type=hidden id="Id" name="Id" />
         <input type=hidden id="pId" name="pId" />
         <input type=hidden id="method" name="method" />
@@ -56,20 +56,24 @@
             <input type="text" id="parentDepartment" name="parentDepartment" readonly/></div>
         <div style="width: 100%">
             名称
-            <input type="text" id="Name" name="Name" /></div>
+            <input type="text" id="Name" name="Name" />
+        </div>
         <div style="width: 100%">
             编码
-            <input type="text" id="Sn" name="Sn" /></div>
+            <input type="text" id="Sn" name="Sn" />
+        </div>
         <div style="width: 100%">
             图片
-            <input type="file" id="DescriptImage" name="DescriptImage" /></div>
+            <input type="file" id="DescriptImage" name="DescriptImage" />
+            <a id="linkDescriptImage" href="" target="_blank" style="display:none">点击下载</a>    
+        </div>
         <div style="width: 100%">
             简介
-            <textarea id="SimpleDescript" name="SimpleDescript" style="width: 80%; height: 100px; visible: false;">KindEditor</textarea>
+            <textarea id="SimpleDescript" runat="server" name="SimpleDescript" style="width: 80%; height: 100px;"></textarea>
         </div>
         <div style="width: 100%">
             详情
-            <textarea id="DetailDescript" name="DetailDescript" style="width: 80%; height: 200px; visible: false;">KindEditor</textarea>
+            <textarea id="DetailDescript" runat="server" name="DetailDescript" style="width: 80%; height: 200px;"></textarea>
         </div>
         </form>
         <div id="demo" class="demo">
@@ -91,7 +95,6 @@
     KindEditor.ready(function(K) {
 	    SimpleEditor = K.create('textarea[name="SimpleDescript"]', {
 		    resizeType : 1,
-		    allowPreviewEmoticons : false,
 		    allowImageUpload : false,
 		    items : [
 			    'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
@@ -99,6 +102,8 @@
 			    'insertunorderedlist']
 	    });
 		DetailEditor = K.create('textarea[name="DetailDescript"]', {
+		    uploadJson : '/control/upload_json.ashx',
+			fileManagerJson : '/control/file_manager_json.ashx',
 			allowFileManager : true
 		});
     });
@@ -158,8 +163,16 @@
                     if (data.length > 0) {
                       $("#form").serializeJsonToForm(data);
                       $("#type").val(type);
-                      SimpleEditor.sync();
-                      DetailEditor.sync();
+                      var json = jQuery.parseJSON(data);
+                      SimpleEditor.html(json.SimpleDescript);
+                      DetailEditor.html(json.DetailDescript);
+                      if(json.DescriptImage == undefined || json.DescriptImage == ""){
+                          $("#linkDescriptImage").hide();
+                      }else{
+                          $("#linkDescriptImage").show();
+                          $("#linkDescriptImage").attr("href",json.DescriptImage);
+                      }
+                      
                       if(parentType != undefined && parentType != null){
                           $("#pId").val(parentType.id);
                           $("#parentDepartment").val(parentType.text);

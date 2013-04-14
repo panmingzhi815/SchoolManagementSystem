@@ -53,16 +53,20 @@
 	background:url('icons/tip.png') no-repeat;
 }
 
-.icon-department{
-	background:url('icons/department.png') no-repeat;
+.icon-school{
+	background:url('icons/school.png') no-repeat;
 }
-
-.icon-class{
-	background:url('icons/class.png') no-repeat;
+    
+.icon-faculty{
+	background:url('icons/faculty.png') no-repeat;
 }
 
 .icon-profession{
 	background:url('icons/profession.png') no-repeat;
+}
+
+.icon-classgrade{
+	background:url('icons/classgrade.png') no-repeat;
 }
 
 .icon-mini-add{

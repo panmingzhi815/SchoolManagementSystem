@@ -98,9 +98,9 @@ jQuery.fn.extend({
             var input = $("#"+name);
             if($(input).hasClass("easyui-combobox")){
                 $(input).combobox('select',value+"");
-            }else if($(input).is(":text") || $(input).is(":hidden")){
-                $(input).val(value);
             }else if($(input).is("textarea")){
+                $(input).val(value);
+            }else if($(input).is(":text") || $(input).is(":hidden")){
                 $(input).val(value);
             }
         })

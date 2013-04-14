@@ -23,9 +23,9 @@ public class FileManager : IHttpHandler
 		String aspxUrl = context.Request.Path.Substring(0, context.Request.Path.LastIndexOf("/") + 1);
 
 		//根目录路径，相对路径
-		String rootPath = "../uploadFile/newsImg/";
+        String rootPath = "../uploadFile/newsImg/";
 		//根目录URL，可以指定绝对路径，比如 http://www.yoursite.com/attached/
-        String rootUrl = aspxUrl + "/uploadFile/newsImg/";
+        String rootUrl = aspxUrl + "../uploadFile/newsImg/";
 		//图片扩展名
 		String fileTypes = "gif,jpg,jpeg,png,bmp";
 

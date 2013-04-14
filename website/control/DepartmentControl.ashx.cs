@@ -178,13 +178,14 @@ namespace Domain.control
             Object o = Activator.CreateInstance(type);
             setValue(o, context);
 
-            HttpPostedFile hpf = context.Request.Files["headImgFile"];
+            HttpPostedFile hpf = context.Request.Files["DescriptImage"];
             if (hpf != null)
             {
-                string savepath = context.Server.MapPath("/uploadFile/headImg/" + new DateTime().ToLongDateString() + "." + hpf.GetType());//路径,相对于服务器当前的路径
-                hpf.SaveAs(savepath);//保存
+                string serverPath = "/uploadFile/headImg/" + System.DateTime.Now.Ticks + "." + hpf.FileName.Split('.')[1];
+                string savePath = context.Server.MapPath(serverPath);//路径,相对于服务器当前的路径
+                hpf.SaveAs(savePath);//保存
                 PropertyInfo property = o.GetType().GetProperty("DescriptImage");
-                property.SetValue(o, savepath, null);
+                property.SetValue(o, serverPath, null);
             }
             return o;
         }

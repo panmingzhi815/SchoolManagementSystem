@@ -40,7 +40,6 @@ namespace DataService.service.basic
                     {
                         session.Update(obj);
                     }
-                    session.Flush();
                     tx.Commit();
                 }
                 catch (Exception e)

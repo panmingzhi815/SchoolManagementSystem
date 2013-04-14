@@ -73,9 +73,10 @@ namespace Domain.control
                 HttpPostedFile hpf = context.Request.Files["headImgFile"];
                 if (hpf != null)
                 {
-                    string savepath = context.Server.MapPath("/uploadFile/headImg/" + student.Id + "." + hpf.GetType());//路径,相对于服务器当前的路径
-                    hpf.SaveAs(savepath);//保存
-                    student.HeadImage = savepath;
+                    string serverPath = "/uploadFile/headImg/" + System.DateTime.Now.Ticks + "." + hpf.FileName.Split('.')[1];
+                    string savePath = context.Server.MapPath(serverPath);//路径,相对于服务器当前的路径
+                    hpf.SaveAs(savePath);//保存
+                    student.HeadImage = serverPath;
                 }
                
                 StudentService s = new StudentService();

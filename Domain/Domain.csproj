@@ -62,10 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Coures.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Department.hbm.xml" />
     <EmbeddedResource Include="Mappings\Person.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Mappings\School.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Faculty.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Profession.hbm.xml" />
+    <EmbeddedResource Include="Mappings\ClassGrade.hbm.xml" />
     <Content Include="SharedLibs\Iesi.Collections.dll" />
     <Content Include="SharedLibs\Newtonsoft.Json.dll" />
     <Content Include="SharedLibs\NHibernate.dll" />

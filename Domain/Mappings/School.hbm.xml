@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+   assembly="Domain"
+   namespace="Domain.Entities">
+    <class name ="School">
+        <id name="Id" column="sid">
+            <generator class ="uuid.hex"/>
+        </id>
+        <property name ="Sn"/>
+        <property name ="Name"/>
+        <property name ="DescriptImage"/>
+        <property name ="SimpleDescript"/>
+        <property name ="DetailDescript"/>
+
+        <set name="facultyList" cascade="all" inverse="true">
+            <key column="sid"></key>
+            <one-to-many class="Domain.Entities.Faculty" />
+        </set>
+    </class>
+</hibernate-mapping>

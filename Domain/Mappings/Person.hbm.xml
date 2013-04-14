@@ -17,7 +17,6 @@
         <property name="Nation"/>
         <property name="EntryTime"/>
         <property name="HeadImage"/>
-        <many-to-one name="Department" class="Department"/>
     </class>
     <union-subclass name="Employee" extends="Person" table="Employee">
     </union-subclass>    

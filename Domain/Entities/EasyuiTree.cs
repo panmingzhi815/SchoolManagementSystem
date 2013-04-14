@@ -8,10 +8,12 @@ namespace Domain.Entities
 {
     public class EasyuiTree
     {
-        public EasyuiTree(string id,string text,string state,Hashtable attributes,IList<EasyuiTree> children) {
+        public EasyuiTree(string id, string text, string state, string iconCls, Hashtable attributes, IList<EasyuiTree> children)
+        {
             this.id = id;
             this.text = text;
             this.state = state;
+            this.iconCls = iconCls;
             this.attributes = attributes;
             this.children = children;
         }
@@ -20,6 +22,8 @@ namespace Domain.Entities
         public string text { get; set; }
 
         public string state { get; set; }
+
+        public string iconCls { get; set; }
 
         public Hashtable attributes { get; set; }
 
