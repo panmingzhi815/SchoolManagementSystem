@@ -65,7 +65,7 @@ namespace DataService.service.dao
             }
         }
 
-        public IList<Faculty> getSchoolList()
+        public IList<School> getSchoolList()
         {
             using (ISession session = getSession())
             {

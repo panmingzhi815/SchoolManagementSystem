@@ -66,8 +66,8 @@
       <hr>
 
       <div class="jumbotron" runat="server" id="SchoolContent">
-        <h1>湖北工程学院欢迎您!</h1>
-        <p class="lead">湖北工程学院是人杰地灵之地，学子一片欣欣向荣，就业率稳步提升。</p>
+        <%--<h1>湖北工程学院欢迎您!</h1>
+        <p class="lead">湖北工程学院是人杰地灵之地，学子一片欣欣向荣，就业率稳步提升。</p>--%>
       </div>
 
       <hr>
