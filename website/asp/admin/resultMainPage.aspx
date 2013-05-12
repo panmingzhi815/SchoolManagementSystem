@@ -427,7 +427,7 @@
     }
     
     
-    function rowOperater(value,row,index){alert(index);
+    function rowOperater(value,row,index){
         if (row.editing){
 	        var s = '<a href="#" onclick="saverow(this)">保存</a> ';
 	        var c = '<a href="#" onclick="cancelrow(this)">取消</a>';
@@ -460,7 +460,6 @@
 	    var index = getRowIndex(target);
 	    $('#datagrid').datagrid('endEdit', index);
 	    var rows = $('#datagrid').datagrid('getRows');
-	    alert(JSON.stringify(rows[index]));
 	    $.ajax({
             url: "../../control/ExamResultControl.ashx?method=saveExamResult",
             data: rows[index],

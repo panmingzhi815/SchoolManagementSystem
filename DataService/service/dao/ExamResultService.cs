@@ -49,7 +49,7 @@ namespace DataService.service.dao
            using (ISession session = getSession()) 
            {
                ICriteria ic = session.CreateCriteria(typeof(ExamResult));
-               ic.Add(Restrictions.In("Student", s));
+               ic.Add(Restrictions.Eq("Student", s));
                IList<ExamResult> examResultList = ic.List<ExamResult>();
                return examResultList;
            }

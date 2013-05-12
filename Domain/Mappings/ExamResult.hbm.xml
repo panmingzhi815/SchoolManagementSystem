@@ -6,8 +6,8 @@
         <id name="Id">
             <generator class ="uuid.hex"/>
         </id>
-        <many-to-one class="Domain.Entities.Student" name="Student" column="StudentID"/>
-        <many-to-one class="Domain.Entities.ExamPlan" name="ExamPlan" column="ExamPlanID"/>
+        <many-to-one class="Domain.Entities.Student" name="Student" column="StudentID" lazy="false"/>
+        <many-to-one class="Domain.Entities.ExamPlan" name="ExamPlan" column="ExamPlanID" lazy="false"/>
         <map name="CouresScoreMap" table="CouresScore" lazy="false">
             <key column="ExamResultID" foreign-key="Id"></key>
             <map-key type="String" column="couresName"></map-key>

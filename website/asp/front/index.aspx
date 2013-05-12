@@ -58,7 +58,7 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">主页</a></li>
-          <li><a href="#">成绩查询</a></li>
+          <li><a href="login.aspx">成绩查询</a></li>
         </ul>
         <h3 class="muted">湖北工程学院</h3>
       </div>
