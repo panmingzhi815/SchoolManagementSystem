@@ -25,7 +25,7 @@ namespace Domain
             IList<School> schoolList =  ds.getSchoolList();
             if (schoolList != null && schoolList.Count > 0)
             {
-                SchoolContent.InnerHtml = "<h4>" + schoolList[0].Name + "</h4>" + "<p>" + schoolList[0].DetailDescript + "</p>";
+                SchoolContent.InnerHtml = "<h1>" + schoolList[0].Name + "</h1>" + "<p class='lead'>" + schoolList[0].DetailDescript + "</p>";
             }
 
             IList<Faculty> facultyList = ds.getFacultyList();
