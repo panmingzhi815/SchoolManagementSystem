@@ -59,7 +59,6 @@
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">主页</a></li>
           <li><a href="#">成绩查询</a></li>
-          <li><a href="#">报考选课</a></li>
         </ul>
         <h3 class="muted">湖北工程学院</h3>
       </div>
@@ -69,32 +68,31 @@
       <div class="jumbotron">
         <h1>湖北工程学院欢迎您!</h1>
         <p class="lead">湖北工程学院是人杰地灵之地，学子一片欣欣向荣，就业率稳步提升。</p>
-        <%--<a class="btn btn-large btn-success" href="#">留言</a>--%>
       </div>
 
       <hr>
 
       <div class="row-fluid marketing">
-        <div class="span6">
-          <h4>计算机学院</h4>
+        <div class="span6" runat="server" id="FacultyColumn1">
+          <%--<h4>计算机学院</h4>
           <p>计算机学院总共有7个科目，教授19人，博士4人，师资力量雄厚</p>
 
           <h4>生命科学学院</h4>
           <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
           <h4>政法学院</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>--%>
         </div>
 
-        <div class="span6">
-          <h4>化学院</h4>
+        <div class="span6" runat="server" id="FacultyColumn2">
+          <%--<h4>化学院</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
           <h4>外语系</h4>
           <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
           <h4>艺术系</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>--%>
         </div>
       </div>
 

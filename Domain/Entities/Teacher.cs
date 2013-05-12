@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain.Entities
 {
-   public class Employee : Person
+   public class Teacher : Person
     {
 
     }

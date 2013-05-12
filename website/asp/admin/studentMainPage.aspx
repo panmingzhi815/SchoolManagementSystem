@@ -5,18 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>无标题页</title>
-    <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/default/easyui.css" />
-    <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../../Jscript/easyui1.2.6/js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../Jscript/easyui1.2.6/js/themes/icon.css" />
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/jquery-1.7.2.min.js"></script>
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/locale/easyui-lang-zh_CN.js"></script>
 
-    <script type="text/javascript" src='/Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
+    <script type="text/javascript" src='../../Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
     
-    <script type="text/javascript" src='/Jscript/easyui1.2.6/js/form.js'> </script>
+    <script type="text/javascript" src='../../Jscript/easyui1.2.6/js/form.js'> </script>
 
     <style type="text/css">
         legend
@@ -67,31 +67,10 @@
             <table>
                 <tr>
                     <td>
-                        姓名
-                    </td>
-                    <td>
-                        <input type="text" style="width: 100px" />
-                    </td>
-                    <td>
-                        性别
-                    </td>
-                    <td>
-                        <select style="width: 50px">
-                            <option>男</option>
-                            <option>女</option>
-                        </select>
-                    </td>
-                    <td>
-                        身份证
-                    </td>
-                    <td>
-                        <input type="text" style="width: 150px" />
-                    </td>
-                    <td>
                         院系
                     </td>
                     <td>
-                         <input id='Faculty_sel' name='Faculty' type="text" />
+                         <input id='Faculty_sel' name='Faculty' />
                     </td>
                     <td>
                         专业
@@ -100,8 +79,30 @@
                         <input id="Profession_sel" name="Profession" />
                     </td>
                     <td>
-                        <a class="easyui-linkbutton" iconcls="icon-search" href="###">搜索</a> <a class="easyui-linkbutton"
-                            iconcls="icon-reload" href="###">刷新</a>
+                        姓名
+                    </td>
+                    <td>
+                        <input id="Name_sel" name="Name" type="text" style="width: 100px" />
+                    </td>
+                    <td>
+                        性别
+                    </td>
+                    <td>
+                        <select id="Sex_sel" name="Sex" style="width: 50px">
+                            <option>男</option>
+                            <option>女</option>
+                        </select>
+                    </td>
+                    <td>
+                        身份证
+                    </td>
+                    <td>
+                        <input id="IDcode_sel" name="IDcode" type="text" style="width: 150px" />
+                    </td>
+                    
+                    <td>
+                        <a id="searchBtn" class="easyui-linkbutton" iconcls="icon-search" href="###">搜索</a> 
+                        <a id="refreshBtn" class="easyui-linkbutton" iconcls="icon-reload" href="###">刷新</a>
                     </td>
                 </tr>
             </table>
@@ -114,7 +115,7 @@
                     class="easyui-linkbutton" iconcls="icon-remove" plain="true"">删除</a>
     </div>
     <div region="center" title="学生管理" border="false">
-        <table id="datagrid" idField="Id" class="easyui-datagrid" url="/control/StudentControl.ashx?method=getStudents" border="false" fit="true"
+        <table id="datagrid" idField="Id" class="easyui-datagrid" url="../../control/StudentControl.ashx?method=getStudents" border="false" fit="true"
             toolbar="#toolbar" pagination="true" rownumbers="true" singleselect="true">
             <thead>
                 <tr>
@@ -144,16 +145,17 @@
         </table>
     </div>
     <div id="w" class="easyui-window" closed="true" style="padding: 5px;">
-        <form id="editForm" action="/control/StudentControl.ashx" style="margin: 0 0 0 0;" method="post" enctype="multipart/form-data">
+        <form id="editForm" action="../../control/StudentControl.ashx" style="margin: 0 0 0 0;" method="post" enctype="multipart/form-data">
         <input type="hidden" id="method" name="method" value="addStudent" />
         <input type="hidden" id="Id" name="Id"/>
         <table id="table" class="table" style="width: 100%; height: 100%">
             <tr>
-                <td>
+                <td style="width:80px">
                     学　　号
                 </td>
                 <td>
-                    <input id='Sn' name='Sn' type="text" />
+                    <input id='Sn' name='Sn' class="easyui-validatebox"   
+    required="required" type="text" />
                 </td>
                 <td colspan="2" rowspan="4" align="center">
                     <img alt='' id="headImg" width="100" height="100" style="border: solid 1px #aabbcc"
@@ -165,7 +167,7 @@
                     姓　　名
                 </td>
                 <td>
-                    <input id='Name' name='Name' type="text" />
+                    <input id='Name' name='Name' class="easyui-validatebox" required="required" type="text" />
                 </td>
             </tr>
             <tr>
@@ -173,7 +175,8 @@
                     身 份 证
                 </td>
                 <td>
-                    <input id='IDcode' name='IDcode' type="text" />
+                    <input id='IDcode' name='IDcode' class="easyui-validatebox"   
+    required="required" type="text" />
                 </td>
             </tr>
             <tr>
@@ -181,22 +184,83 @@
                     性　　别
                 </td>
                 <td>
-                    <input id='Sex' name='Sex' type="text" />
+                    <input id='Sex' name='Sex' class="easyui-validatebox"   
+    required="required" type="text" />
                 </td>
             </tr>
             <tr>
                 <td>
                     民　　族
                 </td>
-                <td>
-                    <input id='Nation' name='Nation' type="text" />
+                <td> 
+                    <select id='Nation' name='Nation' class="easyui-validatebox"   
+    required="required">
+                         <option value="汉族" selected>汉族</option>
+                         <option value="阿昌族">阿昌族</option>
+                         <option value="白族">白族</option>
+                         <option value="保安族">保安族</option>
+                         <option value="布朗族">布朗族</option>
+                         <option value="布依族">布依族</option>
+                         <option value="朝鲜族">朝鲜族</option>
+                         <option value="达斡尔族">达斡尔族</option>
+                         <option value="傣族">傣族</option>
+                         <option value="德昂族">德昂族</option>
+                         <option value="侗族">侗族</option>
+                         <option value="东乡族">东乡族</option>
+                         <option value="独龙族">独龙族</option>
+                         <option value="鄂伦春族">鄂伦春族</option>
+                         <option value="俄罗斯族">俄罗斯族</option>
+                         <option value="鄂温克族">鄂温克族</option>
+                         <option value="高山族">高山族</option>
+                         <option value="仡佬族">仡佬族</option>
+                         <option value="哈尼族">哈尼族</option>
+                         <option value="哈萨克族">哈萨克族</option>
+                         <option value="赫哲族">赫哲族</option>
+                         <option value="回族">回族</option>
+                         <option value="基诺族">基诺族</option>
+                         <option value="京族">京族</option>
+                         <option value="景颇族">景颇族</option>
+                         <option value="柯尔克孜族">柯尔克孜族</option>
+                         <option value="拉祜族">拉祜族</option>
+                         <option value="黎族">黎族</option>
+                         <option value="傈僳族">傈僳族</option>
+                         <option value="珞巴族">珞巴族</option>
+                         <option value="满族">满族</option>
+                         <option value="毛南族">毛南族</option>
+                         <option value="门巴族">门巴族</option>
+                         <option value="蒙古族">蒙古族</option>
+                         <option value="苗族">苗族</option>
+                         <option value="仫佬族">仫佬族</option>
+                         <option value="纳西族">纳西族</option>
+                         <option value="怒族">怒族</option>
+                         <option value="普米族">普米族</option>
+                         <option value="羌族">羌族</option>
+                         <option value="撒拉族">撒拉族</option>
+                         <option value="畲族">畲族</option>
+                         <option value="水族">水族</option>
+                         <option value="塔吉克族">塔吉克族</option>
+                         <option value="塔塔尔族">塔塔尔族</option>
+                         <option value="土族">土族</option>
+                         <option value="土家族">土家族</option>
+                         <option value="佤族">佤族</option>
+                         <option value="锡伯族">锡伯族</option>
+                         <option value="乌兹别克族">乌兹别克族</option>
+                         <option value="瑶族">瑶族</option>
+                         <option value="彝族">彝族</option>
+                         <option value="裕固族">裕固族</option>
+                         <option value="藏族">藏族</option>
+                         <option value="维吾尔族">维吾尔族</option>
+                         <option value="壮族">壮族</option>
+                         </select>
+
                 </td>
-                <td>
+                <td style="width:80px">
                     头像上传
                 </td>
                 <td>
                     <input id="headImgFile" runat="server" name="headImgFile" type="file"
-                        size="2" onchange="changeHead()" />
+                        size="2" onchange="changeHead()" class="easyui-validatebox"   
+    required="required" />
                 </td>
             </tr>
             <tr>
@@ -204,13 +268,13 @@
                     院　　系
                 </td>
                 <td>
-                    <input id='Faculty' name='Faculty' type="text" />
+                    <input id='Faculty' name='Faculty' required="required" type="text" />
                 </td>
                 <td>
                     入校时间
                 </td>
                 <td>
-                    <input id='EntryTime' name='EntryTime' class="easyui-datebox" type="text" required="true" />
+                    <input id='EntryTime' name='EntryTime' required="required" class="easyui-datebox" type="text" required="true" />
                 </td>
             </tr>
             <tr>
@@ -218,13 +282,13 @@
                     专　　业
                 </td>
                 <td>
-                    <input id="Profession" name="Profession" />
+                    <input id="Profession" name="Profession" required="required" />
                 </td>
                 <td>
                     班　　级
                 </td>
                 <td>
-                    <input id="ClassGrade" name="ClassGrade"/>
+                    <input id="ClassGrade" name="ClassGrade" required="required"/>
                 </td>
             </tr>
             <tr>
@@ -264,13 +328,14 @@
 
 <script type="text/javascript">
     $(function(){ 
-    $('#Faculty').combobox({
-				url:'/control/DepartmentControl.ashx?method=getFacultyCombo',
+       
+        $('#Faculty').combobox({
+				url:'../../control/DepartmentControl.ashx?method=getFacultyCombo',
 				valueField:'Id',
 				textField:'Name',
 				onSelect: function(faculty){   
 				      $('#Profession').combobox('setValues', '');
-                    var url = '/control/DepartmentControl.ashx?method=getProfessionCombo&facultyID='+faculty.Id;   
+                    var url = '../../control/DepartmentControl.ashx?method=getProfessionCombo&facultyID='+faculty.Id;   
                     $('#Profession').combobox('reload', url);   
                }
 		});
@@ -280,7 +345,7 @@
 				textField:'Name',
 				onSelect: function(profession){   
 				      $('#ClassGrade').combobox('setValues', '');
-                    var url = '/control/DepartmentControl.ashx?method=getClassGradeCombo&professionID='+profession.Id;   
+                    var url = '../../control/DepartmentControl.ashx?method=getClassGradeCombo&professionID='+profession.Id;   
                     $('#ClassGrade').combobox('reload', url);   
                }
 		});
@@ -290,12 +355,12 @@
 				textField:'Name'
 		});
         $('#Faculty_sel').combobox({
-				url:'/control/DepartmentControl.ashx?method=getFacultyCombo',
+				url:'../../control/DepartmentControl.ashx?method=getFacultyCombo',
 				valueField:'Id',
 				textField:'Name',
 				onSelect: function(faculty){   
 				      $('#profession_sel').combobox('setValues', '');
-                    var url = '/control/DepartmentControl.ashx?method=getProfessionCombo&facultyID='+faculty.Id;   
+                    var url = '../../control/DepartmentControl.ashx?method=getProfessionCombo&facultyID='+faculty.Id;   
                     $('#Profession_sel').combobox('reload', url);   
                }
 		});
@@ -304,6 +369,23 @@
 				valueField:'Id',
 				textField:'Name'
 		});
+		 $("#searchBtn").click(function(){
+		    var faculty_sel = $('#Faculty_sel').combobox('getValue');
+		    var profession_sel = $('#Profession_sel').combobox('getValue');
+		    var Name_sel = $('#Name_sel').val();
+		    var Sex_sel = $('#Sex_sel').val();
+		    var IDcode_sel = $('#IDcode_sel').val();
+            $('#datagrid').datagrid('reload',{
+                FacultyID: faculty_sel,
+                ProfessionID: profession_sel,
+                Name:Name_sel,
+                Sex:Sex_sel,
+                IDcode:IDcode_sel
+            });
+        });
+	    $("#refreshBtn").click(function(){
+            $('#datagrid').datagrid('reload',{});
+        });
         $("#newUserBtn").click(function(){
            $('#w').window({  
             title:'添加',  
@@ -325,7 +407,7 @@
                 $('#w').window('open');
                 $("#method").val("updateStudent");
                 $.ajax({
-                    url: "/control/StudentControl.ashx?method=getStudent",
+                    url: "../../control/StudentControl.ashx?method=getStudent",
                     data: {
                        Id: selected.Id
                     },
@@ -349,7 +431,7 @@
                msgAlert('提示','请选中一行后再执行此操作','warning');
             }else{
                 $.ajax({
-                    url: "/control/StudentControl.ashx?method=delStudent",
+                    url: "../../control/StudentControl.ashx?method=delStudent",
                     data: {
                       Id: selected.Id
                     },

@@ -448,9 +448,6 @@
     <Content Include="control\StudentControl.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="control\TeacherControl.ashx" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="control\DepartmentControl.ashx" />
     <Content Include="Jscript\easyui1.2.6\js\form.js" />
     <Content Include="Jscript\kindeditor-4.1.6\asp.net\bin\LitJSON.dll" />
@@ -712,6 +709,7 @@
     <Content Include="control\PlanControl.ashx" />
     <Content Include="control\ExamResultControl.ashx" />
     <Content Include="Jscript\easyui1.2.6\js\json.js" />
+    <Content Include="control\TeacherControl.ashx" />
     <None Include="tree_data.json" />
   </ItemGroup>
   <ItemGroup>

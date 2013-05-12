@@ -5,25 +5,25 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>欢迎登录</title>
-    <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/default/easyui.css" />
-    <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../../Jscript/easyui1.2.6/js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../Jscript/easyui1.2.6/js/themes/icon.css" />
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/jquery-1.7.2.min.js"></script>
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
 
-    <script type="text/javascript" src='/Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
+    <script type="text/javascript" src='../../Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
 
     <script type="text/javascript">
     $(function(){
         $('#normalLogin').form({  
-            url:'/control/UserControl.ashx',
+            url:'../../control/UserControl.ashx',
             onSubmit: function(){  
                 return  $('#normalLogin').form('validate');
             },  
             success:function(data){  
                 if(data == "1"){
-                    window.location.href="/asp/admin/main.aspx";
+                    window.location.href="main.aspx";
                 }else if(data =="0"){
                     alert("用户名名密码错误！");
                 }
@@ -38,12 +38,12 @@
         closable="false" minimizable="false" maximizable="false" resizable="false" collapsible="false">
         <div class="easyui-layout" fit="true">
             <div region="north" style="height: 60px; padding: 0; overflow:hidden" border="false">
-                <img src="/images/loginback.png" width="100%" height="60px" />
+                <img src="../../images/loginback.png" width="100%" height="60px" />
             </div>
             <div region="center" border="false">
                 <div class="easyui-tabs" fit="true" border="false">
                     <div title="普通用户">
-                        <form id="normalLogin" style="margin: 0 0 0 0" action="/control/UserControl.ashx">
+                        <form id="normalLogin" style="margin: 0 0 0 0" action="../../control/UserControl.ashx">
                         <input type="hidden" name="method" value="login" />
                         <table style="padding-top: 15px; padding-left: 70px; font-size: 15px; line-height: 30px">
                             <tr>

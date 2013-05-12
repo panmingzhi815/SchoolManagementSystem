@@ -4,20 +4,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>无标题页</title>
-    <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/default/easyui.css" />
-    <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../../Jscript/easyui1.2.6/js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../Jscript/easyui1.2.6/js/themes/icon.css" />
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/jquery-1.7.2.min.js"></script>
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/locale/easyui-lang-zh_CN.js"></script>
 
-    <script type="text/javascript" src='/Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
+    <script type="text/javascript" src='../../Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
     
-    <script type="text/javascript" src='/Jscript/easyui1.2.6/js/form.js'> </script>
+    <script type="text/javascript" src='../../Jscript/easyui1.2.6/js/form.js'> </script>
     
-     <script type="text/javascript" src='/Jscript/easyui1.2.6/js/json.js'> </script>
+     <script type="text/javascript" src='../../Jscript/easyui1.2.6/js/json.js'> </script>
 
     <style type="text/css">
         legend
@@ -116,7 +116,7 @@
                     class="easyui-linkbutton" iconcls="icon-remove" plain="true"">删除</a>
     </div>
     <div region="center" title="成绩管理" border="false">
-        <table id="datagrid" idField="Id" class="easyui-datagrid" url="/control/ExamResultControl.ashx?method=searchExamResult" border="false" fit="true"
+        <table id="datagrid" idField="Id" class="easyui-datagrid" url="../../control/ExamResultControl.ashx?method=searchExamResult" border="false" fit="true"
             toolbar="#toolbar" pagination="true" rownumbers="true" singleselect="true">
             <thead>
                 <tr>
@@ -138,7 +138,7 @@
         </table>
     </div>
     <div id="w" class="easyui-window" closed="true" style="padding: 5px;">
-        <form id="editForm" action="/control/CouresControl.ashx" style="margin: 0 0 0 0;" method="post" enctype="multipart/form-data">
+        <form id="editForm" action="../../control/CouresControl.ashx" style="margin: 0 0 0 0;" method="post" enctype="multipart/form-data">
         <input type="hidden" id="method" name="method" value="saveCoures" />
         <input type="hidden" id="Id" name="Id"/>
         <table id="table" class="table" style="width: 100%; height: 100%">
@@ -213,12 +213,12 @@
 <script type="text/javascript">
     $(function(){ 
         $('#faculty').combobox({
-				url:'/control/DepartmentControl.ashx?method=getFacultyCombo',
+				url:'../../control/DepartmentControl.ashx?method=getFacultyCombo',
 				valueField:'Id',
 				textField:'Name',
 				onSelect: function(faculty){   
 				      $('#profession').combobox('setValues', '');
-                    var url = '/control/DepartmentControl.ashx?method=getProfessionCombo&facultyID='+faculty.Id;   
+                    var url = '../../control/DepartmentControl.ashx?method=getProfessionCombo&facultyID='+faculty.Id;   
                     $('#profession').combobox('reload', url);   
                }
 		});
@@ -228,12 +228,12 @@
 				textField:'Name'
 		});
         $('#faculty_sel').combobox({
-				url:'/control/DepartmentControl.ashx?method=getFacultyCombo',
+				url:'../../control/DepartmentControl.ashx?method=getFacultyCombo',
 				valueField:'Id',
 				textField:'Name',
 				onSelect: function(faculty){   
 				      $('#profession_sel').combobox('setValues', '');
-                    var url = '/control/DepartmentControl.ashx?method=getProfessionCombo&facultyID='+faculty.Id;   
+                    var url = '../../control/DepartmentControl.ashx?method=getProfessionCombo&facultyID='+faculty.Id;   
                     $('#profession_sel').combobox('reload', url);   
                }
 		});
@@ -248,7 +248,7 @@
 		    var YearNo_sel = $("#YearNo_sel").val();
 		    var LevelNo_sel = $("#LevelNo_sel").val();
 		    $.ajax({
-                    url: "/control/ExamResultControl.ashx?method=getColumn",
+                    url: "../../control/ExamResultControl.ashx?method=getColumn",
                     data: {
                        FacultyID: faculty_sel,
                         ProfessionID: profession_sel,
@@ -340,7 +340,7 @@
                 $('#w').window('open');
                 $("#method").val("saveCoures");
                 $.ajax({
-                    url: "/control/CouresControl.ashx?method=getCouresByID",
+                    url: "../../control/CouresControl.ashx?method=getCouresByID",
                     data: {
                        CouresID: selected.Id
                     },
@@ -370,7 +370,7 @@
                msgAlert('提示','请选中一行后再执行此操作','warning');
             }else{
                 $.ajax({
-                    url: "/control/CouresControl.ashx?method=deleteCoures",
+                    url: "../../control/CouresControl.ashx?method=deleteCoures",
                     data: {
                       CouresID: selected.Id
                     },
@@ -462,7 +462,7 @@
 	    var rows = $('#datagrid').datagrid('getRows');
 	    alert(JSON.stringify(rows[index]));
 	    $.ajax({
-            url: "/control/ExamResultControl.ashx?method=saveExamResult",
+            url: "../../control/ExamResultControl.ashx?method=saveExamResult",
             data: rows[index],
             type:'post', 
             success: function( data ) {

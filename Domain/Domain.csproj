@@ -52,7 +52,7 @@
     <Compile Include="Entities\Coures.cs" />
     <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\EasyuiTree.cs" />
-    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Teacher.cs" />
     <Compile Include="Entities\ExamResult.cs" />
     <Compile Include="Entities\Faculty.cs" />
     <Compile Include="Entities\Person.cs" />

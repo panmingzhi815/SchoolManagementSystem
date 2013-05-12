@@ -7,19 +7,19 @@ var _menus = {
 			"menuid": "12",
 			"menuname": "学生信息",
 			"icon": "icon-add",
-			"url": "/asp/admin/studentMainPage.aspx"
+			"url": "studentMainPage.aspx"
 		},
 		{
 			"menuid": "13",
 			"menuname": "老师信息",
 			"icon": "icon-users",
-			"url": "/asp/admin/teacherMainPage.aspx"
+			"url": "teacherMainPage.aspx"
 		},
 		{
 			"menuid": "14",
 			"menuname": "机构信息",
 			"icon": "icon-role",
-			"url": "/asp/admin/departmentMainPage.aspx"
+			"url": "departmentMainPage.aspx"
 		}]
 	},
 	{
@@ -30,19 +30,19 @@ var _menus = {
 			"menuid": "21",
 			"menuname": "课程管理",
 			"icon": "icon-nav",
-			"url": "/asp/admin/couresMainPage.aspx"
+			"url": "couresMainPage.aspx"
 		},
 		{
 			"menuid": "22",
 			"menuname": "考试安排",
 			"icon": "icon-nav",
-			"url": "/asp/admin/planMainPage.aspx"
+			"url": "planMainPage.aspx"
 		},
 		{
 			"menuid": "23",
 			"menuname": "成绩管理",
 			"icon": "icon-nav",
-			"url": "/asp/admin/resultMainPage.aspx"
+			"url": "resultMainPage.aspx"
 		}]
 	}]
 };

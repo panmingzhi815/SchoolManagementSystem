@@ -12,6 +12,7 @@ using DataService.service.dao;
 using DataService.util;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization;
+using System.Collections.Generic;
 
 namespace Domain.control
 {
@@ -175,6 +176,25 @@ namespace Domain.control
             {
                 StudentService service = new StudentService();
                 Student student = new Student();
+                setValue(student, context);
+
+                string ProfessionID = context.Request.Form.Get("FacultyID");
+                string FacultyID = context.Request.Form.Get("ProfessionID");
+
+                IList<Profession> professionList = new List<Profession>();
+                DepartmentService ds = new DepartmentService();
+                if (!string.IsNullOrEmpty(ProfessionID)) {
+                   Profession profession = ds.getProfessionByID(ProfessionID);
+                   if (profession != null) professionList.Add(profession);
+                }
+                else if (!string.IsNullOrEmpty(FacultyID)) {
+                    Faculty faculty = ds.getFacultyByID(FacultyID);
+                    if (faculty != null && faculty.professionList != null)
+                        foreach (Profession p in faculty.professionList)
+                            professionList.Add(p);
+                }
+
+                student.ProfessionList = professionList;
                 int rows = Convert.ToInt32(context.Request.Form["rows"]);
                 int page = Convert.ToInt32(context.Request.Form["page"]);
                 object[] data = service.getStudentList(student, rows, page);

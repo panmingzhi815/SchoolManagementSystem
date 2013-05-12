@@ -27,7 +27,11 @@ namespace DataService.service.dao
             {
                 c.Add(Restrictions.Like("IDcode", student.IDcode, MatchMode.Anywhere));
             }
-            if (student.ProfessionList != null)
+            if (!string.IsNullOrEmpty(student.Sn))
+            {
+                c.Add(Restrictions.Like("Sn", student.Sn, MatchMode.Anywhere));
+            }
+            if (student.ProfessionList != null && student.ProfessionList.Count > 0)
             {
                 c.Add(Restrictions.In("Profession", student.ProfessionList.ToArray()));
             }

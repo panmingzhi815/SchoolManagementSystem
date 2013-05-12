@@ -5,26 +5,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>无标题页</title>
-    <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/default/easyui.css" />
-    <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="../../Jscript/easyui1.2.6/js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../../Jscript/easyui1.2.6/js/themes/icon.css" />
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/jquery-1.7.2.min.js"></script>
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
     
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/jquery.easyui.min.js"></script>
 
-    <script type="text/javascript" src="/Jscript/easyui1.2.6/js/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../../Jscript/easyui1.2.6/js/locale/easyui-lang-zh_CN.js"></script>
 
-    <link rel="stylesheet" href="/Jscript/kindeditor-4.1.6/themes/default/default.css" />
+    <link rel="stylesheet" href="../../Jscript/kindeditor-4.1.6/themes/default/default.css" />
 
-    <script type="text/javascript" charset="utf-8" src="/Jscript/kindeditor-4.1.6/kindeditor-min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../Jscript/kindeditor-4.1.6/kindeditor-min.js"></script>
 
-    <script type="text/javascript" charset="utf-8" src="/Jscript/kindeditor-4.1.6/lang/zh_CN.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../Jscript/kindeditor-4.1.6/lang/zh_CN.js"></script>
     
-    <script type="text/javascript" src='/Jscript/easyui1.2.6/js/form.js'></script>
+    <script type="text/javascript" src='../../Jscript/easyui1.2.6/js/form.js'></script>
     
-    <script type="text/javascript" src='/Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
+    <script type="text/javascript" src='../../Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
 
     <style type="text/css">
         textarea
@@ -109,8 +109,8 @@
 			    'insertunorderedlist']
 	    });
 		DetailEditor = K.create('textarea[name="DetailDescript"]', {
-		    uploadJson : '/control/upload_json.ashx',
-			fileManagerJson : '/control/file_manager_json.ashx',
+		    uploadJson : '../../control/upload_json.ashx',
+			fileManagerJson : '../../control/file_manager_json.ashx',
 			allowFileManager : true
 		});
     });
@@ -142,7 +142,7 @@
        beforeClickPrepare("班级");
     });
     $('#form').form({  
-        url:'/control/DepartmentControl.ashx',
+        url:'../../control/DepartmentControl.ashx',
         onSubmit: function(){ 
             SimpleEditor.sync();
             DetailEditor.sync();
@@ -161,7 +161,7 @@
         }  
     }); 
     $('#tt').tree({  
-        url:'/control/DepartmentControl.ashx?method=getDepartmentTree',
+        url:'../../control/DepartmentControl.ashx?method=getDepartmentTree',
         onLoadSuccess:function(node, data){
            if(data == ""){
                $("#type").val("学校");
@@ -172,7 +172,7 @@
            var parentType = $('#tt').tree("getParent",node.target);
            setEnableBtn(type);
 		    $.ajax({
-                url: "/control/DepartmentControl.ashx?method=getDepartment&type="+type,
+                url: "../../control/DepartmentControl.ashx?method=getDepartment&type="+type,
                 data: {
                    Id: node.id,
                    type:type
