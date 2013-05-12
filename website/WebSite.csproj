@@ -405,6 +405,13 @@
     <Compile Include="asp\front\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="asp\front\score.aspx.cs">
+      <DependentUpon>score.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\front\score.aspx.designer.cs">
+      <DependentUpon>score.aspx</DependentUpon>
+    </Compile>
     <Compile Include="control\CouresControl.ashx.cs">
       <DependentUpon>CouresControl.ashx</DependentUpon>
     </Compile>
@@ -701,6 +708,7 @@
     <Content Include="asp\admin\resultMainPage.aspx" />
     <Content Include="asp\admin\planMainPage.aspx" />
     <Content Include="asp\front\login.aspx" />
+    <Content Include="asp\front\score.aspx" />
     <Content Include="control\file_manager_json.ashx" />
     <Content Include="control\upload_json.ashx" />
     <Content Include="asp\front\index.aspx" />

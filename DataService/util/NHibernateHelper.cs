@@ -7,7 +7,7 @@ using NHibernate.Cfg;
 
 namespace DataService.util
 {
-    class NHibernateHelper
+    public class NHibernateHelper
     {
         private static ISessionFactory _sessionFactory;
 

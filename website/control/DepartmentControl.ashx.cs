@@ -267,6 +267,9 @@ namespace Domain.control
                 String json = JsonConvert.SerializeObject(professionList);
                 context.Response.Write(json);
             }
+            else {
+                context.Response.Write("[{}]");
+            }
             
         }
 
@@ -279,7 +282,10 @@ namespace Domain.control
                 String json = JsonConvert.SerializeObject(classGradeList);
                 context.Response.Write(json);
             }
-            
+            else
+            {
+                context.Response.Write("[{}]");
+            }
         }
     }
 }

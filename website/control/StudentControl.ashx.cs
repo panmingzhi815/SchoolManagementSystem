@@ -13,6 +13,7 @@ using DataService.util;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization;
 using System.Collections.Generic;
+using System.Web.SessionState;
 
 namespace Domain.control
 {
@@ -21,7 +22,7 @@ namespace Domain.control
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    public class StudentControl : IHttpHandler
+    public class StudentControl : IHttpHandler, IRequiresSessionState
     {
         public HttpContext context;
         public void ProcessRequest(HttpContext context)
@@ -49,6 +50,9 @@ namespace Domain.control
                     break;
                 case "getStudent":
                     getStudent();
+                    break;
+                case "login":
+                    login();
                     break;
                 default:
                     context.Response.Write("-1");
@@ -97,6 +101,7 @@ namespace Domain.control
                         student.ClassGrade = classGrade;
                 }
                 StudentService s = new StudentService();
+                student.Password = student.Sn;
                 s.save(student);
                 
                 context.Response.Write("1");
@@ -211,6 +216,21 @@ namespace Domain.control
 
         }
 
+        public void login() {
+            string Sn = context.Request.Form.Get("Sn");
+            string Password = context.Request.Form.Get("Password");
+            StudentService ss = new StudentService();
+            Student s = ss.login(Sn,Password);
+            if (s != null)
+            {
+                context.Session["user"] = s;
+                context.Server.Transfer("../asp/front/score.aspx");
+            }
+            else {
+                context.Server.Transfer("../asp/front/login.aspx");
+            }
+        }
+
         public Object setValue(Object o, HttpContext context)
         {
             string[] keys = context.Request.Form.AllKeys;
@@ -243,4 +263,5 @@ namespace Domain.control
         }
 
     }
+
 }

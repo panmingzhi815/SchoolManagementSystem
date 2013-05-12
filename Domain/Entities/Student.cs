@@ -25,6 +25,7 @@ namespace Domain.Entities
         }
         public virtual string ProfessionName { get; set; }
         public virtual IList<Profession> ProfessionList { get; set; }
+        public virtual string Password { get; set; }
 
     }
 }

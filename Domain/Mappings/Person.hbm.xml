@@ -21,6 +21,7 @@
     <union-subclass name="Teacher" extends="Person" table="Teacher">
     </union-subclass>    
     <union-subclass name="Student" extends="Person" table="Student">
+        <property name="Password"/>
         <many-to-one name="ClassGrade" class="ClassGrade"/>
         <many-to-one name="Profession" class="Profession"/>
     </union-subclass>

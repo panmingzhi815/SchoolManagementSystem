@@ -52,11 +52,12 @@
 
     <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" action="../../control/StudentControl.ashx" method="post">
         <h2 class="form-signin-heading">请先登陆</h2>
-        <input runat="server" id="userName" type="text" class="input-block-level" placeholder="用户名">
-        <input runat="server" id="passWord" type="password" class="input-block-level" placeholder="密码">
-        <button runat="server" id="loginBtn" class="btn btn-large btn-primary" type="submit">登陆</button>
+        <input name="method" value="login" type="hidden" />
+        <input id="Sn" name="Sn" type="text" class="input-block-level" placeholder="用户名">
+        <input  id="Password" name="Password" type="password" class="input-block-level" placeholder="密码">
+        <button class="btn btn-large btn-primary" type="submit">登陆</button>
       </form>
     </div>
 

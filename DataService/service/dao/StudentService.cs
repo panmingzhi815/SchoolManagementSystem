@@ -43,5 +43,18 @@ namespace DataService.service.dao
             result[1] = c.List<Student>();
             return result;
         }
+
+        public Student login(string Sn, string password) {
+            using (ISession session = getSession()) {
+                
+                if (string.IsNullOrEmpty(Sn) || string.IsNullOrEmpty(password))
+                    return null;
+                ICriteria c = session.CreateCriteria(typeof(Student));
+                c.Add(Restrictions.Eq("Sn",Sn));
+                c.Add(Restrictions.Eq("Password", password));
+                object o = c.UniqueResult();
+                return c.UniqueResult() == null ? null : (Student)c.UniqueResult();
+            }
+        }
     }
 }

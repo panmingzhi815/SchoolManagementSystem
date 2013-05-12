@@ -10,6 +10,8 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using DataService.service.dao;
+using Domain.Entities;
 
 namespace Domain.asp.front
 {

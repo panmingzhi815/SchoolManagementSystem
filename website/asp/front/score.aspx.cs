@@ -10,18 +10,15 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using DataService.util;
+using Domain.Entities;
 
-namespace WebSite.asp
+namespace Domain.asp.front
 {
-    public partial class main : System.Web.UI.Page
+    public partial class score : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] == null || Session["password"] == null) {
-                Response.Redirect("userLogin.aspx");
-            }
-            DataService.util.NHibernateHelper.GetSession().Close();
+            Student s = (Student)Session["user"];
         }
     }
 }
