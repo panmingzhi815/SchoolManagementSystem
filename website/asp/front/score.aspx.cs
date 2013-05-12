@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Domain.Entities;
+using DataService.service.dao;
 
 namespace Domain.asp.front
 {
@@ -19,6 +20,10 @@ namespace Domain.asp.front
         protected void Page_Load(object sender, EventArgs e)
         {
             Student s = (Student)Session["user"];
+            if (s != null) {
+                ExamResultService ers = new ExamResultService();
+                ers.getExamResultByStudent(s);
+            }
         }
     }
 }
