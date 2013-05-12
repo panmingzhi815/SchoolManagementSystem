@@ -131,9 +131,6 @@
                     <th field="Telphone" width="100">
                         联系电话
                     </th>
-                    <th field="telphone" width="100">
-                        院系
-                    </th>
                 </tr>
             </thead>
         </table>

@@ -136,7 +136,7 @@ int.MaxValue, 1);
             if (planObjArr[1] != null)
             {
                 IList<ExamPlan> examPlanList = (IList<ExamPlan>)planObjArr[1];
-                if (examPlanList == null && examPlanList.Count == 0) return;
+                if (examPlanList == null || examPlanList.Count == 0) return;
                 ExamResultService ers = new ExamResultService();
                 IList<ExamPlan> planList = new List<ExamPlan>();
                 planList.Add(examPlanList[0]);

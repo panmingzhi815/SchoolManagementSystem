@@ -40,7 +40,11 @@ namespace DataService.service.dao
             page = page > 0 ? page : 1;
             c.SetFirstResult((page - 1) * rows);
             c.SetMaxResults(rows);
-            result[1] = c.List<Student>();
+            IList<Student> studentList = c.List<Student>();
+            foreach (Student s in studentList) {
+                s.ProfessionName = s.Profession.Name;
+            }
+            result[1] = studentList;
             return result;
         }
 

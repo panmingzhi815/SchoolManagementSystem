@@ -24,7 +24,7 @@ namespace Domain.asp.front
             if (s != null) {
                 ExamResultService ers = new ExamResultService();
                 IList<ExamResult> examResultList = ers.getExamResultByStudent(s);
-                string content = "";
+                string content = "<center><h2>"+s.Name+" 同学成绩单</h2></center>";
                 foreach (ExamResult er in examResultList) {
                     content += "<h4>" + er.ExamPlan.Name + "</h4>";
                     IDictionary<string,string> couresScoureMap = er.CouresScoreMap;
