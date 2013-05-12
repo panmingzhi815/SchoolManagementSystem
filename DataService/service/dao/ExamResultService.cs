@@ -21,7 +21,7 @@ namespace DataService.service.dao
            }
        }
 
-       public object[] searchExamResult(IList<ExamPlan> examPlanList , int rows,int page) {
+       public object[] searchExamResult(IList<ExamPlan> examPlanList , int rows,int page)         {
            using (ISession session = getSession())
            {
                object[] result = new object[2];
@@ -41,6 +41,17 @@ namespace DataService.service.dao
                }
                result[1] = examResultList;
                return result;
+           }
+       }
+
+       public IList<ExamResult> getExamResultByStudent(Student s)
+       {
+           using (ISession session = getSession()) 
+           {
+               ICriteria ic = session.CreateCriteria(typeof(ExamResult));
+               ic.Add(Restrictions.In("Student", s));
+               IList<ExamResult> examResultList = ic.List<ExamResult>();
+               return examResultList;
            }
        }
     }
