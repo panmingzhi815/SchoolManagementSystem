@@ -398,6 +398,13 @@
     <Compile Include="asp\admin\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="asp\front\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\front\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="control\CouresControl.ashx.cs">
       <DependentUpon>CouresControl.ashx</DependentUpon>
     </Compile>
@@ -419,11 +426,11 @@
     <Compile Include="control\UserControl.ashx.cs">
       <DependentUpon>UserControl.ashx</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
+    <Compile Include="asp\front\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
+    <Compile Include="asp\front\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -693,9 +700,10 @@
     <Content Include="asp\admin\couresMainPage.aspx" />
     <Content Include="asp\admin\resultMainPage.aspx" />
     <Content Include="asp\admin\planMainPage.aspx" />
+    <Content Include="asp\front\login.aspx" />
     <Content Include="control\file_manager_json.ashx" />
     <Content Include="control\upload_json.ashx" />
-    <Content Include="index.aspx" />
+    <Content Include="asp\front\index.aspx" />
     <Content Include="Jscript\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="Jscript\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="Jscript\bootstrap\css\bootstrap.css" />
@@ -717,7 +725,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="asp\front\" />
     <Folder Include="Jscript\kindeditor-4.1.6\attached\" />
     <Folder Include="uploadFile\file\" />
     <Folder Include="uploadFile\headImg\" />
