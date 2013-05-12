@@ -21,18 +21,25 @@ namespace Domain
         protected void Page_Load(object sender, EventArgs e)
         {
             DepartmentService ds = new DepartmentService();
+
+            IList<School> schoolList =  ds.getSchoolList();
+            if (schoolList != null && schoolList.Count > 0)
+            {
+                SchoolContent.InnerHtml = "<h4>" + schoolList[0].Name + "</h4>" + "<p>" + schoolList[0].DetailDescript + "</p>";
+            }
+
             IList<Faculty> facultyList = ds.getFacultyList();
             string content1 = "";
             string content2 = "";
             for (int i = 0; i < facultyList.Count; i++) { 
                Faculty faculty = facultyList[i];
                if (i < 3) {
-                   content1 += "<h4>" + faculty.Name + "<h4>";
-                   content1 += "<p>" + faculty.SimpleDescript + "<p>";
+                   content1 += "<h4>" + faculty.Name + "</h4>";
+                   content1 += "<p>" + faculty.SimpleDescript + "</p>";
                }
                else if (i > 2 && i < 6) {
-                   content2 += "<h4>" + faculty.Name + "<h4>";
-                   content2 += "<p>" + faculty.SimpleDescript + "<p>";
+                   content2 += "<h4>" + faculty.Name + "</h4>";
+                   content2 += "<p>" + faculty.SimpleDescript + "</p>";
                }
             }
             FacultyColumn1.InnerHtml = content1;

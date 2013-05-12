@@ -65,6 +65,16 @@ namespace DataService.service.dao
             }
         }
 
+        public IList<Faculty> getSchoolList()
+        {
+            using (ISession session = getSession())
+            {
+                ICriteria ic = session.CreateCriteria(typeof(School));
+                IList<School> schoolList = ic.List<School>();
+                return schoolList;
+            }
+        }
+
         public IList<Faculty> getFacultyList() {
             using (ISession session = getSession())
             {
