@@ -9,7 +9,7 @@
         <property name="adonet.batch_size">10</property>
         <property name="show_sql">true</property>
         <property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <property name="command_timeout">10</property>
         <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
         <mapping assembly="Domain"/>

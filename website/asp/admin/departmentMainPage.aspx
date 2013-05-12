@@ -23,6 +23,8 @@
     <script type="text/javascript" charset="utf-8" src="/Jscript/kindeditor-4.1.6/lang/zh_CN.js"></script>
     
     <script type="text/javascript" src='/Jscript/easyui1.2.6/js/form.js'></script>
+    
+    <script type="text/javascript" src='/Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
 
     <style type="text/css">
         textarea
@@ -49,14 +51,19 @@
         <input type=hidden id="pId" name="pId" />
         <input type=hidden id="method" name="method" />
         <div style="width: 100%">
-            类型 <input type="text" value="院系" id="type" name="type" readonly/>
+            类型 <input type="text" value="院系" id="type" name="type"/>
             </div>
         <div style="width: 100%">
             隶属
-            <input type="text" id="parentDepartment" name="parentDepartment" readonly/></div>
+            <input type="text" id="parentDepartment" name="parentDepartment"/>
+            </div>
         <div style="width: 100%">
             名称
             <input type="text" id="Name" name="Name" />
+        </div>
+        <div id="YearDiv" style="width: 100%;">
+            年级
+            <select id="Year" name="Year"></select>
         </div>
         <div style="width: 100%">
             编码
@@ -65,7 +72,7 @@
         <div style="width: 100%">
             图片
             <input type="file" id="DescriptImage" name="DescriptImage" />
-            <a id="linkDescriptImage" href="" target="_blank" style="display:none">点击下载</a>    
+            <a id="linkDescriptImage" href="" target="_blank" style="display:none ">点击下载</a>    
         </div>
         <div style="width: 100%">
             简介
@@ -108,7 +115,15 @@
 		});
     });
     
+    var myDate  = new Date();
+    for(var i = myDate.getFullYear();i > myDate.getFullYear() -100;i=i-1){
+        var varItem = new Option(i + "级", i);      
+        document.getElementById("Year").options.add(varItem);     
+    }
+    
     $(function(){  
+    
+    $("#YearDiv").hide();
     $("#delBtn").click(function(){
         $("#method").val("deleteDepartment");
         $('#form').submit();
@@ -133,9 +148,13 @@
             DetailEditor.sync();
             return $('#form').form('validate');
         },  
-        success:function(data){ 
+        success:function(data){
             if(data == "1"){
               msgShow('提示','操作成功');
+              var node = $('#tt').tree('getRoot');
+              if(node != undefined && node != null){
+               $('#tt').tree('reload',node.taget);
+              }
             }else if(data =="0"){
               msgAlert('提示','操作失败','error');
             }
@@ -177,6 +196,12 @@
                           $("#pId").val(parentType.id);
                           $("#parentDepartment").val(parentType.text);
                       }
+                      if(type == "班级"){
+                          $("#YearDiv").show();
+                      }else{
+                          $("#YearDiv").hide();
+                      }
+                      
                     } else {
                       msgAlert('提示','加载用户详细信息失败!','error');
                     }
@@ -197,6 +222,15 @@
        $("#pId").val(Id);
        $("#parentDepartment").val(Name);
        setEnableBtn("");
+       
+       SimpleEditor.html("");
+       DetailEditor.html("");
+       $("#linkDescriptImage").hide();
+       if(type == "班级"){
+       $("#YearDiv").show();
+       }else{
+        $("#YearDiv").hide();
+       }
     }
     
     function setEnableBtn(position){

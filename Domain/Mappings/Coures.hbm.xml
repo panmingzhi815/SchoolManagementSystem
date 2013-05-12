@@ -6,8 +6,11 @@
         <id name="Id">
             <generator class ="uuid.hex"/>
         </id>
-        <property name ="Sn"/>
         <property name ="Name"/>
         <property name ="Descript"/>
+        <property name ="YearNo"/>
+        <property name ="LevelNo"/>
+        <property name ="totalScore"/>
+        <many-to-one class="Domain.Entities.Profession" name="Profession" column="pid"/>
     </class>
 </hibernate-mapping>

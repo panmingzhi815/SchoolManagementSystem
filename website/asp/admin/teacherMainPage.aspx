@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="studentMainPage.aspx.cs"
-    Inherits="WebSite.asp.studentManager" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="teacherMainPage.aspx.cs"
+    Inherits="WebSite.asp.teacherManager" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>无标题页</title>
+    <title>教师管理</title>
     <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/Jscript/easyui1.2.6/js/themes/icon.css" />
 
@@ -120,7 +120,7 @@
                 iconcls="icon-edit" plain="true")">修改</a> <a id="destroyUserBtn" href="javascript:void(0)"
                     class="easyui-linkbutton" iconcls="icon-remove" plain="true"">删除</a>
     </div>
-    <div region="center" title="学生管理" border="false">
+    <div region="center" title="教师管理" border="false">
         <table id="datagrid" idField="Id" class="easyui-datagrid" url="/control/StudentControl.ashx?method=getStudents" border="false" fit="true"
             toolbar="#toolbar" pagination="true" rownumbers="true" singleselect="true">
             <thead>

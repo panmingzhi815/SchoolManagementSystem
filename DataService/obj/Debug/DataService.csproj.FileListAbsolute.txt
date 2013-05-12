@@ -1,11 +1,11 @@
 I:\GitHub\SchoolManagementSystem\DataService\obj\Debug\ResolveAssemblyReference.cache
 I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\hibernate.cfg.xml
-I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\DataService.dll
 I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\DataService.pdb
 I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Domain.dll
 I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Iesi.Collections.dll
 I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\NHibernate.dll
 I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Newtonsoft.Json.dll
 I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\Domain.pdb
-I:\GitHub\SchoolManagementSystem\DataService\obj\Debug\DataService.dll
 I:\GitHub\SchoolManagementSystem\DataService\obj\Debug\DataService.pdb
+I:\GitHub\SchoolManagementSystem\DataService\bin\Debug\DataService.exe
+I:\GitHub\SchoolManagementSystem\DataService\obj\Debug\DataService.exe

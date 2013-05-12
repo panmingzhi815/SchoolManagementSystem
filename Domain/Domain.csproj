@@ -53,8 +53,10 @@
     <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\EasyuiTree.cs" />
     <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\ExamResult.cs" />
     <Compile Include="Entities\Faculty.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\ExamPlan.cs" />
     <Compile Include="Entities\Profession.cs" />
     <Compile Include="Entities\School.cs" />
     <Compile Include="Entities\Student.cs" />
@@ -69,6 +71,8 @@
     <EmbeddedResource Include="Mappings\Faculty.hbm.xml" />
     <EmbeddedResource Include="Mappings\Profession.hbm.xml" />
     <EmbeddedResource Include="Mappings\ClassGrade.hbm.xml" />
+    <EmbeddedResource Include="Mappings\ExamPlan.hbm.xml" />
+    <EmbeddedResource Include="Mappings\ExamResult.hbm.xml" />
     <Content Include="SharedLibs\Iesi.Collections.dll" />
     <Content Include="SharedLibs\Newtonsoft.Json.dll" />
     <Content Include="SharedLibs\NHibernate.dll" />

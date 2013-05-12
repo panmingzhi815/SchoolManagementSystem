@@ -8,6 +8,7 @@
         </id>
         <property name ="Sn"/>
         <property name ="Name"/>
+        <property name ="Year"/>
         <property name ="DescriptImage"/>
         <property name ="SimpleDescript"/>
         <property name ="DetailDescript"/>

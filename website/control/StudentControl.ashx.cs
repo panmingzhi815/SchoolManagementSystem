@@ -78,9 +78,26 @@ namespace Domain.control
                     hpf.SaveAs(savePath);//保存
                     student.HeadImage = serverPath;
                 }
-               
+                string FacultyID = context.Request.Form.Get("Faculty");
+                DepartmentService ds = new DepartmentService();
+                string professionID = context.Request.Form.Get("Profession");
+                if (!string.IsNullOrEmpty(professionID))
+                {
+                    Profession profession = ds.getProfessionByID(professionID);
+                    if (profession != null)
+                        student.Profession = profession;
+                }
+
+                string ClassGradeID = context.Request.Form.Get("ClassGrade");
+                if (!string.IsNullOrEmpty(ClassGradeID))
+                {
+                    ClassGrade classGrade = ds.getClassGradeByID(ClassGradeID);
+                    if (classGrade != null)
+                        student.ClassGrade = classGrade;
+                }
                 StudentService s = new StudentService();
                 s.save(student);
+                
                 context.Response.Write("1");
             }
             catch (Exception e)
@@ -117,6 +134,21 @@ namespace Domain.control
                     string savepath = context.Server.MapPath("/uploadFile/headImg/" + student.Id + "." + hpf.GetType());//路径,相对于服务器当前的路径
                     hpf.SaveAs(savepath);//保存
                     student.HeadImage = savepath;
+                }
+
+                DepartmentService ds = new DepartmentService();
+                string professionID = context.Request.Form.Get("Profession");
+                if (!string.IsNullOrEmpty(professionID)) {
+                    Profession profession = ds.getProfessionByID(professionID);
+                    if (profession != null)
+                        student.Profession = profession;
+                }
+
+                string ClassGradeID = context.Request.Form.Get("ClassGrade");
+                if (!string.IsNullOrEmpty(ClassGradeID)) {
+                    ClassGrade classGrade = ds.getClassGradeByID(ClassGradeID);
+                    if (classGrade != null)
+                        student.ClassGrade = classGrade;
                 }
                 
                 StudentService s = new StudentService();

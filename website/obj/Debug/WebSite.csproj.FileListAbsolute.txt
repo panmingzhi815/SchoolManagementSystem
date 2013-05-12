@@ -9,6 +9,6 @@ I:\GitHub\SchoolManagementSystem\website\bin\Domain.pdb
 I:\GitHub\SchoolManagementSystem\website\bin\Iesi.Collections.dll
 I:\GitHub\SchoolManagementSystem\website\bin\NHibernate.dll
 I:\GitHub\SchoolManagementSystem\website\bin\hibernate.cfg.xml
-I:\GitHub\SchoolManagementSystem\website\bin\DataService.dll
 I:\GitHub\SchoolManagementSystem\website\bin\Newtonsoft.Json.dll
 I:\GitHub\SchoolManagementSystem\website\bin\LitJSON.dll
+I:\GitHub\SchoolManagementSystem\website\bin\DataService.exe

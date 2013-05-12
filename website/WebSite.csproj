@@ -30,10 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Domain\SharedLibs\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="LitJSON, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Domain\SharedLibs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Domain\SharedLibs\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -58,10 +66,10 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="asp\departmentMainPage.aspx" />
-    <Content Include="asp\studentMainPage.aspx" />
-    <Content Include="asp\teacherMainPage.aspx" />
-    <Content Include="asp\userLogin.aspx" />
+    <Content Include="asp\admin\departmentMainPage.aspx" />
+    <Content Include="asp\admin\studentMainPage.aspx" />
+    <Content Include="asp\admin\teacherMainPage.aspx" />
+    <Content Include="asp\admin\userLogin.aspx" />
     <Content Include="images\loginback.png" />
     <Content Include="Jscript\easyui1.2.6\css\default.css" />
     <Content Include="Jscript\easyui1.2.6\images\arrow.gif" />
@@ -330,47 +338,77 @@
     <Content Include="Jscript\easyui1.2.6\js\themes\icons\sum.png" />
     <Content Include="Jscript\easyui1.2.6\js\themes\icons\tip.png" />
     <Content Include="Jscript\easyui1.2.6\js\themes\icons\undo.png" />
-    <Content Include="asp\main.aspx" />
+    <Content Include="asp\admin\main.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="asp\departmentMainPage.aspx.cs">
+    <Compile Include="asp\admin\departmentMainPage.aspx.cs">
       <DependentUpon>departmentMainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="asp\departmentMainPage.aspx.designer.cs">
+    <Compile Include="asp\admin\departmentMainPage.aspx.designer.cs">
       <DependentUpon>departmentMainPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="asp\studentMainPage.aspx.cs">
+    <Compile Include="asp\admin\couresMainPage.aspx.cs">
+      <DependentUpon>couresMainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\admin\couresMainPage.aspx.designer.cs">
+      <DependentUpon>couresMainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="asp\admin\resultMainPage.aspx.cs">
+      <DependentUpon>resultMainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\admin\resultMainPage.aspx.designer.cs">
+      <DependentUpon>resultMainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="asp\admin\planMainPage.aspx.cs">
+      <DependentUpon>planMainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\admin\planMainPage.aspx.designer.cs">
+      <DependentUpon>planMainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="asp\admin\studentMainPage.aspx.cs">
       <DependentUpon>studentMainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="asp\studentMainPage.aspx.designer.cs">
+    <Compile Include="asp\admin\studentMainPage.aspx.designer.cs">
       <DependentUpon>studentMainPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="asp\teacherMainPage.aspx.cs">
+    <Compile Include="asp\admin\teacherMainPage.aspx.cs">
       <DependentUpon>teacherMainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="asp\teacherMainPage.aspx.designer.cs">
+    <Compile Include="asp\admin\teacherMainPage.aspx.designer.cs">
       <DependentUpon>teacherMainPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="asp\userLogin.aspx.cs">
+    <Compile Include="asp\admin\userLogin.aspx.cs">
       <DependentUpon>userLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="asp\userLogin.aspx.designer.cs">
+    <Compile Include="asp\admin\userLogin.aspx.designer.cs">
       <DependentUpon>userLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="asp\main.aspx.cs">
+    <Compile Include="asp\admin\main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="asp\main.aspx.designer.cs">
+    <Compile Include="asp\admin\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="control\CouresControl.ashx.cs">
+      <DependentUpon>CouresControl.ashx</DependentUpon>
     </Compile>
     <Compile Include="control\DepartmentControl.ashx.cs">
       <DependentUpon>DepartmentControl.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="control\ExamResultControl.ashx.cs">
+      <DependentUpon>ExamResultControl.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="control\PlanControl.ashx.cs">
+      <DependentUpon>PlanControl.ashx</DependentUpon>
     </Compile>
     <Compile Include="control\StudentControl.ashx.cs">
       <DependentUpon>StudentControl.ashx</DependentUpon>
@@ -380,6 +418,13 @@
     </Compile>
     <Compile Include="control\UserControl.ashx.cs">
       <DependentUpon>UserControl.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -648,12 +693,32 @@
     <Content Include="Jscript\kindeditor-4.1.6\asp.net\upload_json.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="asp\admin\couresMainPage.aspx" />
+    <Content Include="asp\admin\resultMainPage.aspx" />
+    <Content Include="asp\admin\planMainPage.aspx" />
     <Content Include="control\file_manager_json.ashx" />
     <Content Include="control\upload_json.ashx" />
+    <Content Include="index.aspx" />
+    <Content Include="Jscript\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Jscript\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Jscript\bootstrap\css\bootstrap.css" />
+    <Content Include="Jscript\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Jscript\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Jscript\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Jscript\bootstrap\js\bootstrap.js" />
+    <Content Include="Jscript\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Jscript\bootstrap\js\jquery-1.9.1.min.js" />
+    <Content Include="control\CouresControl.ashx" />
+    <Content Include="control\PlanControl.ashx" />
+    <Content Include="control\ExamResultControl.ashx" />
     <None Include="tree_data.json" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="asp\front\" />
     <Folder Include="Jscript\kindeditor-4.1.6\attached\" />
     <Folder Include="uploadFile\file\" />
     <Folder Include="uploadFile\headImg\" />
@@ -674,7 +739,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>49578</DevelopmentServerPort>
+          <DevelopmentServerPort>10086</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/WebSite</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

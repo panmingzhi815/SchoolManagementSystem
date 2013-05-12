@@ -7,19 +7,19 @@ var _menus = {
 			"menuid": "12",
 			"menuname": "学生信息",
 			"icon": "icon-add",
-			"url": "/asp/studentMainPage.aspx"
+			"url": "/asp/admin/studentMainPage.aspx"
 		},
 		{
 			"menuid": "13",
 			"menuname": "老师信息",
 			"icon": "icon-users",
-			"url": "/asp/teacherMainPage.aspx"
+			"url": "/asp/admin/teacherMainPage.aspx"
 		},
 		{
 			"menuid": "14",
 			"menuname": "机构信息",
 			"icon": "icon-role",
-			"url": "/asp/departmentMainPage.aspx"
+			"url": "/asp/admin/departmentMainPage.aspx"
 		}]
 	},
 	{
@@ -30,19 +30,19 @@ var _menus = {
 			"menuid": "21",
 			"menuname": "课程管理",
 			"icon": "icon-nav",
-			"url": "http://www.baidu.com"
+			"url": "/asp/admin/couresMainPage.aspx"
 		},
 		{
 			"menuid": "22",
 			"menuname": "考试安排",
 			"icon": "icon-nav",
-			"url": "http://www.baidu.com"
+			"url": "/asp/admin/planMainPage.aspx"
 		},
 		{
 			"menuid": "23",
 			"menuname": "成绩管理",
 			"icon": "icon-nav",
-			"url": "http://www.baidu.com"
+			"url": "/asp/admin/resultMainPage.aspx"
 		}]
 	}]
 };
@@ -322,7 +322,6 @@ function msgAlert(title, msgString, msgType) {
 	$.messager.alert(title, msgString, msgType);
 }
 
-//弹出信息窗口 title:标题 msgString:提示信息 msgType:信息类型 [error,info,question,warning]
 function msgShow(title, msgString) {
 	$.messager.show({
 	title:title,
@@ -342,8 +341,8 @@ $.fn.datebox.defaults.formatter = function(date){
 $.fn.datebox.defaults.parser = function(s){
 	var t = Date.parse(s);
 	if (!isNaN(t)){
-		return new Date(t);
-	} else {
+	    return new Date(t);
+	}else{
 		return new Date();
 	}
 }

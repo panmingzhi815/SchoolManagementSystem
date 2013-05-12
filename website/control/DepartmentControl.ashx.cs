@@ -10,6 +10,7 @@ using DataService.service.dao;
 using Domain.Entities;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using Iesi.Collections.Generic;
 using System.Reflection;
 
 namespace Domain.control
@@ -26,7 +27,7 @@ namespace Domain.control
         {
             this.context = context;
             context.Response.ContentType = "text/plain";
-            String method = context.Request.Form.Get("method");
+            string method = context.Request.Form.Get("method");
             if (method == null)
             {
                 method = context.Request.QueryString["method"];
@@ -44,6 +45,15 @@ namespace Domain.control
                     break;
                 case "deleteDepartment":
                     deleteDepartment();
+                    break;
+                case "getFacultyCombo" :
+                    getFacultyCombo();
+                    break;
+                case "getProfessionCombo":
+                    getProfessionCombo();
+                    break;
+                case "getClassGradeCombo":
+                    getClassGradeCombo();
                     break;
                 default:
                     context.Response.Write("-1");
@@ -84,63 +94,80 @@ namespace Domain.control
 
         private void deleteDepartment()
         {
-            string type = context.Request.Form.Get("type");
-            if (type == null)
-                return;
-            string id = context.Request.Form.Get("Id");
-            DepartmentService ds = new DepartmentService();
-            switch (type) { 
-                case "学校" :
-                    School school = (School)ds.get(typeof(School), id);
-                    ds.del(school);
-                    break;
-                case "院系":
-                    Faculty faculty = (Faculty)ds.get(typeof(Faculty), id);
-                    ds.del(faculty);
-                    break;
-                case "专业":
-                    Profession profession = (Profession)ds.get(typeof(Profession), id);
-                    ds.del(profession);
-                    break;
-                case "班级":
-                    ClassGrade classGrade = (ClassGrade)ds.get(typeof(ClassGrade), id);
-                    ds.del(classGrade);
-                    break;
+            try
+            {
+                string type = context.Request.Form.Get("type");
+                if (type == null)
+                    return;
+                string id = context.Request.Form.Get("Id");
+                DepartmentService ds = new DepartmentService();
+                switch (type)
+                {
+                    case "学校":
+                        School school = (School)ds.get(typeof(School), id);
+                        ds.del(school);
+                        break;
+                    case "院系":
+                        Faculty faculty = (Faculty)ds.get(typeof(Faculty), id);
+                        ds.del(faculty);
+                        break;
+                    case "专业":
+                        Profession profession = (Profession)ds.get(typeof(Profession), id);
+                        ds.del(profession);
+                        break;
+                    case "班级":
+                        ClassGrade classGrade = (ClassGrade)ds.get(typeof(ClassGrade), id);
+                        ds.del(classGrade);
+                        break;
+                }
+               context.Response.Write("1");
             }
+            catch (Exception e) {
+                context.Response.Write("0");
+            }
+            
         }
 
         private void saveDepartment()
         {
-            string type = context.Request.Form.Get("type");
-            if (type == null)
-                return;
-            string pId = context.Request.Form.Get("pId");
-            DepartmentService ds = new DepartmentService();
-            switch (type)
+            try
             {
-                case "学校":
-                    School school = (School)colectionParameter(typeof(School));
-                    ds.save(school);
-                    break;
-                case "院系":
-                    School s = (School)ds.get(typeof(School), pId);
-                    Faculty faculty = (Faculty)colectionParameter(typeof(Faculty));
-                    faculty.School = s;
-                    ds.save(faculty);
-                    break;
-                case "专业":
-                    Faculty f = (Faculty)ds.get(typeof(Faculty), pId);
-                    Profession profession = (Profession)colectionParameter(typeof(Profession));
-                    profession.Faculty = f;
-                    ds.save(profession);
-                    break;
-                case "班级":
-                    Profession p = (Profession)ds.get(typeof(Profession), pId);
-                    ClassGrade classGrade = (ClassGrade)colectionParameter(typeof(ClassGrade));
-                    classGrade.Profession = p;
-                    ds.save(classGrade);
-                    break;
+                string type = context.Request.Form.Get("type");
+                if (type == null)
+                    return;
+                string pId = context.Request.Form.Get("pId");
+                DepartmentService ds = new DepartmentService();
+                switch (type)
+                {
+                    case "学校":
+                        School school = (School)colectionParameter(typeof(School));
+                        ds.save(school);
+                        break;
+                    case "院系":
+                        School s = (School)ds.get(typeof(School), pId);
+                        Faculty faculty = (Faculty)colectionParameter(typeof(Faculty));
+                        faculty.School = s;
+                        ds.save(faculty);
+                        break;
+                    case "专业":
+                        Faculty f = (Faculty)ds.get(typeof(Faculty), pId);
+                        Profession profession = (Profession)colectionParameter(typeof(Profession));
+                        profession.Faculty = f;
+                        ds.save(profession);
+                        break;
+                    case "班级":
+                        Profession p = (Profession)ds.get(typeof(Profession), pId);
+                        ClassGrade classGrade = (ClassGrade)colectionParameter(typeof(ClassGrade));
+                        classGrade.Profession = p;
+                        ds.save(classGrade);
+                        break;
+                }
+                context.Response.Write("1");
             }
+            catch (Exception e) {
+                context.Response.Write("0");
+            }
+            
         }
 
         public bool IsReusable
@@ -179,7 +206,7 @@ namespace Domain.control
             setValue(o, context);
 
             HttpPostedFile hpf = context.Request.Files["DescriptImage"];
-            if (hpf != null)
+            if (hpf != null && hpf.FileName.Split('.').Length == 2)
             {
                 string serverPath = "/uploadFile/headImg/" + System.DateTime.Now.Ticks + "." + hpf.FileName.Split('.')[1];
                 string savePath = context.Server.MapPath(serverPath);//路径,相对于服务器当前的路径
@@ -206,9 +233,12 @@ namespace Domain.control
                     {
                         property.SetValue(o, Convert.ToDateTime(context.Request.Form.Get(s)), null);
                     }
-                    else if (property.PropertyType == typeof(string) || property.PropertyType == typeof(int))
+                    else if (property.PropertyType == typeof(string))
                     {
                         property.SetValue(o, context.Request.Form.Get(s), null);
+                    }
+                    else if (property.PropertyType == typeof(int)) {
+                        property.SetValue(o, Convert.ToInt32(context.Request.Form.Get(s)), null);
                     }
 
                 }
@@ -219,6 +249,37 @@ namespace Domain.control
 
             }
             return o;
+        }
+
+        public void getFacultyCombo() {
+            DepartmentService ds = new DepartmentService();
+            IList<Faculty> facultyList = ds.getFacultyList();
+            String json = JsonConvert.SerializeObject(facultyList);
+            context.Response.Write(json);
+        }
+
+        public void getProfessionCombo(){
+            string facultyID = context.Request.QueryString["facultyID"];
+            DepartmentService ds = new DepartmentService();
+            ISet<Profession> professionList = ds.getProfessionSet(facultyID);
+            if (professionList.Count > 0)
+            {
+                String json = JsonConvert.SerializeObject(professionList);
+                context.Response.Write(json);
+            }
+            
+        }
+
+        public void getClassGradeCombo(){
+            string professionID = context.Request.QueryString["professionID"];
+            DepartmentService ds = new DepartmentService();
+            ISet<ClassGrade> classGradeList = ds.getClassGradeSet(professionID);
+            if (classGradeList.Count > 0)
+            {
+                String json = JsonConvert.SerializeObject(classGradeList);
+                context.Response.Write(json);
+            }
+            
         }
     }
 }

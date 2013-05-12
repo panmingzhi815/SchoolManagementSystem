@@ -15,6 +15,8 @@ namespace Domain.Entities
 
         public virtual string ProfessionName { get; set; }
 
+        public virtual int Year { get; set; }
+
         [JsonIgnore]
         public virtual ISet<Student> studentList
         {

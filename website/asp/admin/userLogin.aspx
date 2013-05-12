@@ -23,7 +23,7 @@
             },  
             success:function(data){  
                 if(data == "1"){
-                    window.location.href="/asp/main.aspx";
+                    window.location.href="/asp/admin/main.aspx";
                 }else if(data =="0"){
                     alert("用户名名密码错误！");
                 }
@@ -37,8 +37,8 @@
     <div id="loginWin" class="easyui-window" title="登录" style="width: 400px; height: 260px;"
         closable="false" minimizable="false" maximizable="false" resizable="false" collapsible="false">
         <div class="easyui-layout" fit="true">
-            <div region="north" style="height: 60px; padding: 0" border="false">
-                <img src="../images/loginback.png" width="100%" height="60px" />
+            <div region="north" style="height: 60px; padding: 0; overflow:hidden" border="false">
+                <img src="/images/loginback.png" width="100%" height="60px" />
             </div>
             <div region="center" border="false">
                 <div class="easyui-tabs" fit="true" border="false">

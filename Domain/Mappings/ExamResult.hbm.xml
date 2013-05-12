@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+   assembly="Domain"
+   namespace="Domain.Entities">
+    <class name ="ExamResult">
+        <id name="Id">
+            <generator class ="uuid.hex"/>
+        </id>
+        <many-to-one class="Domain.Entities.Student" name="Student" column="StudentID"/>
+        <many-to-one class="Domain.Entities.ExamPlan" name="ExamPlan" column="ExamPlanID"/>
+        <map name="CouresScoreMap" table="CouresScore" lazy="false">
+            <key column="ExamResultID" foreign-key="Id"></key>
+            <map-key type="String" column="couresName"></map-key>
+            <element type="String" column="couresScore"></element>
+        </map>
+    </class>
+</hibernate-mapping>

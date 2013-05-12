@@ -98,6 +98,10 @@ jQuery.fn.extend({
             var input = $("#"+name);
             if($(input).hasClass("easyui-combobox")){
                 $(input).combobox('select',value+"");
+            }if($(input).hasClass("easyui-datebox")){
+                $(input).datebox('setValue', value.substr(0,10));
+            }else if($(input).is("select")){
+               $(input).val(value);
             }else if($(input).is("textarea")){
                 $(input).val(value);
             }else if($(input).is(":text") || $(input).is(":hidden")){

@@ -55,13 +55,68 @@ namespace DataService.service.dao
                             ProfessionNodeList.Add(ProfessionNode);
                         }
                         FacultyNode.children = ProfessionNodeList;
-                        FacultyNodeList.Add(FacultyNode);
+                            FacultyNodeList.Add(FacultyNode);
                     }
                     SchoolNode.children = FacultyNodeList;
                     resultList.Add(SchoolNode);
                 }
                 return resultList;
 
+            }
+        }
+
+        public IList<Faculty> getFacultyList() {
+            using (ISession session = getSession())
+            {
+               ICriteria ic = session.CreateCriteria(typeof(Faculty));
+               IList<Faculty> facultyList = ic.List<Faculty>();
+               return facultyList;
+            }
+        }
+
+        public ISet<Profession> getProfessionSet(String facultyID)
+        {
+            using (ISession session = getSession())
+            {
+                Faculty faculty = (Faculty)session.Get(typeof(Faculty), facultyID);
+                NHibernateUtil.Initialize(faculty.professionList);
+                return faculty.professionList;
+            }
+        }
+
+        public ISet<ClassGrade> getClassGradeSet(string professionID) {
+            using (ISession session = getSession())
+            {
+                Profession profession = (Profession)session.Get(typeof(Profession), professionID);
+                NHibernateUtil.Initialize(profession.classGradeList);
+                return profession.classGradeList;
+            }
+        }
+
+        public Faculty getFacultyByID(string FacultyID)
+        {
+            using (ISession session = getSession())
+            {
+                Faculty faculty = (Faculty)session.Get(typeof(Faculty), FacultyID);
+                return faculty;
+            }
+        }
+
+        public Profession getProfessionByID(string ProfessionID)
+        {
+            using (ISession session = getSession())
+            {
+                Profession profession = (Profession)session.Get(typeof(Profession), ProfessionID);
+                return profession;
+            }
+        }
+
+        public ClassGrade getClassGradeByID(string ClassGradeID)
+        {
+            using (ISession session = getSession())
+            {
+                ClassGrade classGrade = (ClassGrade)session.Get(typeof(ClassGrade), ClassGradeID);
+                return classGrade;
             }
         }
     }

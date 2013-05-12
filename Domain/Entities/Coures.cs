@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Domain.Entities
 {
@@ -10,12 +11,6 @@ namespace Domain.Entities
     {
         //主键
         public virtual string Id
-        {
-            get;
-            set;
-        }
-        //编码
-        public virtual string Sn
         {
             get;
             set;
@@ -32,5 +27,45 @@ namespace Domain.Entities
             get;
             set;
         }
+        //年号
+        public virtual string YearNo 
+        { 
+            get;
+            set; 
+        }
+        //级别
+        public virtual string LevelNo
+        { 
+            get;
+            set;
+        }
+        public virtual string totalScore 
+        {
+            get;
+            set;
+        }
+        //专业
+        [JsonIgnore]
+        public virtual Profession Profession
+        { 
+            get;
+            set;
+        }
+
+        public virtual string ProfessionName
+        { 
+            get;
+            set;
+        }
+
+        public virtual string FacultyName
+        {
+            get;
+            set;
+        }
+
+        public virtual string ProfessionID { get; set; }
+
+        public virtual string FacultyID { get; set; }
     }
 }
