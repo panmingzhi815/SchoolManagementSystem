@@ -16,6 +16,8 @@
     <script type="text/javascript" src='/Jscript/easyui1.2.6/js/Jinjuan.index.js'> </script>
     
     <script type="text/javascript" src='/Jscript/easyui1.2.6/js/form.js'> </script>
+    
+     <script type="text/javascript" src='/Jscript/easyui1.2.6/js/json.js'> </script>
 
     <style type="text/css">
         legend
@@ -256,7 +258,6 @@
                     type:'post', 
                     success: function( data ) {
                         if (data.length > 0) {
-                          alert(data);
                           var arr = new Array();
                           var arr2 = new Array();
                           var json = jQuery.parseJSON(data);
@@ -283,9 +284,20 @@
                              itemObj["field"] = n.columnName;
                              itemObj["title"] = n.columnName;
                              itemObj["width"] = 100;
+                             itemObj["editor"] = 'numberbox';
                              arr2[i+3] = itemObj;
                           });
-                           arr[0] = arr2;
+                          
+                          var itemObj3 = {field:'操作',title:'操作',width:80,align:'center',
+						                        formatter:function(value,row,index){
+						                        var e = '<a id="btn1" href="#" onclick="editrow(this)">修改</a> ';
+						                        var d = '<a id="btn2" href="#" onclick="deleterow(this)">删除</a>';
+						                        return e+d;
+						                        }
+					                        };
+
+                         arr2[3+json.length]=itemObj3;
+                         arr[0] = arr2;
                            
                            $('#datagrid').datagrid({
 				                columns:arr
@@ -303,12 +315,6 @@
                        alert("异常！");    
                     } 
                 });
-//            $('#datagrid').datagrid('reload',{
-//                FacultyID: faculty_sel,
-//                ProfessionID: profession_sel,
-//                YearNo: YearNo_sel,
-//                LevelNo: LevelNo_sel
-//            });
         });
 	    $("#refreshBtn").click(function(){
             $('#datagrid').datagrid('reload',{});
@@ -420,5 +426,69 @@
         document.getElementById("YearNo").options.add(new Option(i, i));
     }
     
+    
+    function rowOperater(value,row,index){alert(index);
+        if (row.editing){
+	        var s = '<a href="#" onclick="saverow(this)">保存</a> ';
+	        var c = '<a href="#" onclick="cancelrow(this)">取消</a>';
+	        return s+c;
+        } else {
+	        var e = '<a href="#" onclick="editrow(this)">修改</a> ';
+	        var d = '<a href="#" onclick="deleterow(this)">删除</a>';
+	        return e+d;
+        }
+    }
+	function getRowIndex(target){
+		var tr = $(target).closest('tr.datagrid-row');
+		return parseInt(tr.attr('datagrid-row-index'));
+	}
+	function editrow(target){
+		$('#datagrid').datagrid('beginEdit', getRowIndex(target));
+		$(target).html("保存");
+		$(target).attr('onclick','saverow(this)');
+		$("#btn2").html("取消");
+		$("#btn2").attr('onclick','cancelrow(this)');
+	}
+	function deleterow(target){
+		$.messager.confirm('确认','你确认要删除吗?',function(r){
+			if (r){
+				$('#datagrid').datagrid('deleteRow', getRowIndex(target));
+			}
+		});
+	}
+	function saverow(target){
+	    var index = getRowIndex(target);
+	    $('#datagrid').datagrid('endEdit', index);
+	    var rows = $('#datagrid').datagrid('getRows');
+	    alert(JSON.stringify(rows[index]));
+	    $.ajax({
+            url: "/control/ExamResultControl.ashx?method=saveExamResult",
+            data: rows[index],
+            type:'post', 
+            success: function( data ) {
+              if(data == "1"){
+                  msgShow('提示','操作成功');
+                  
+		            $(target).html("修改");
+		            $(target).attr('onclick','editrow(this)');
+		            $("#btn2").html("删除");
+		            $("#btn2").attr('onclick','deleterow(this)'); 
+              }else{
+                  msgAlert('提示','操作失败','error');
+              }
+            },
+            error : function() {      
+              alert("异常！");    
+            } 
+        });
+
+	}
+	function cancelrow(target){
+		$('#datagrid').datagrid('cancelEdit', getRowIndex(target));
+		$(target).html("修改");
+		$(target).attr('onclick','editrow(this)');
+		$("#btn2").html("删除");
+		$("#btn2").attr('onclick','deleterow(this)');
+	}
 </script>
 

@@ -711,6 +711,7 @@
     <Content Include="control\CouresControl.ashx" />
     <Content Include="control\PlanControl.ashx" />
     <Content Include="control\ExamResultControl.ashx" />
+    <Content Include="Jscript\easyui1.2.6\js\json.js" />
     <None Include="tree_data.json" />
   </ItemGroup>
   <ItemGroup>

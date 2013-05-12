@@ -58,7 +58,25 @@ namespace Domain.control
 
         private void saveExamResult()
         {
-            
+            try{
+                string[] keys = context.Request.Form.AllKeys;
+                ExamResultService res = new ExamResultService();
+                ExamResult er = res.getExamResultByID(context.Request.Form.Get("Id"));
+                IDictionary<string, string> map = new Dictionary<string, string>();
+                foreach (string s in keys) 
+                {
+                    if (!s.Equals("Id") && !s.Equals("StudentSN") && !s.Equals("StudentName") && !s.Equals("ExamPlanName")) {
+                        map.Add(s, context.Request.Form.Get(s));
+                    }
+                }
+                er.CouresScoreMap = map;
+                res.save(er);
+                context.Response.Write("1");
+            }
+            catch (Exception e)
+            {
+                context.Response.Write("0");
+            }
         }
 
         public void getColumn() { 
@@ -78,8 +96,10 @@ int.MaxValue, 1);
             if (planObjArr[1] != null)
             {
                 IList<ExamPlan> examPlanList = (IList<ExamPlan>)planObjArr[1];
+                if (examPlanList == null) return;
                 ExamPlan ep = examPlanList.ElementAt(0);
                 ArrayList newArrayList = new ArrayList();
+                if (examPlanList.ElementAt(0).CouresSet == null) return;
                 foreach (Coures c in examPlanList.ElementAt(0).CouresSet)
                 {
                     newArrayList.Add(c.Name);
@@ -128,6 +148,7 @@ int.MaxValue, 1);
                     {
                         Hashtable cht = new Hashtable();
                         cht.Add("Id", er.Id);
+                        cht.Add("StudentSN", er.StudentSN);
                         cht.Add("StudentName", er.StudentName);
                         cht.Add("ExamPlanName", er.ExamPlanName);
 

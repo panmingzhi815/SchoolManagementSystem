@@ -11,12 +11,22 @@ namespace DataService.service.dao
 {
    public class ExamResultService : BaseServiceImpl
     {
+
+       public ExamResult getExamResultByID(string examResultID)
+       {
+           using (ISession session = getSession())
+           {
+               ExamResult er = (ExamResult)session.Get(typeof(ExamResult), examResultID);
+               return er;
+           }
+       }
+
        public object[] searchExamResult(IList<ExamPlan> examPlanList , int rows,int page) {
            using (ISession session = getSession())
            {
                object[] result = new object[2];
                ICriteria ic = session.CreateCriteria(typeof(ExamResult));
-               //ic.Add(Restrictions.In("ExamPlan", examPlanList.ToArray()));
+               ic.Add(Restrictions.In("ExamPlan", examPlanList.ToArray()));
                ICriteria ic2 = (ICriteria)ic.Clone();
                result[0] = getCount(ic2);
 
