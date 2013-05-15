@@ -11,7 +11,7 @@
 namespace Domain.asp.front {
     
     
-    public partial class score {
+    public partial class news {
         
         /// <summary>
         /// welcomeInfo control.

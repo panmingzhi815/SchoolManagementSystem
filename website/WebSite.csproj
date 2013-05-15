@@ -398,6 +398,13 @@
     <Compile Include="asp\admin\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="asp\front\info.aspx.cs">
+      <DependentUpon>info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asp\front\info.aspx.designer.cs">
+      <DependentUpon>info.aspx</DependentUpon>
+    </Compile>
     <Compile Include="asp\front\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -707,11 +714,13 @@
     <Content Include="asp\admin\couresMainPage.aspx" />
     <Content Include="asp\admin\resultMainPage.aspx" />
     <Content Include="asp\admin\planMainPage.aspx" />
+    <Content Include="asp\front\info.aspx" />
     <Content Include="asp\front\login.aspx" />
     <Content Include="asp\front\score.aspx" />
     <Content Include="control\file_manager_json.ashx" />
     <Content Include="control\upload_json.ashx" />
     <Content Include="asp\front\index.aspx" />
+    <Content Include="images\indexBackgroud.jpg" />
     <Content Include="Jscript\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="Jscript\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="Jscript\bootstrap\css\bootstrap.css" />

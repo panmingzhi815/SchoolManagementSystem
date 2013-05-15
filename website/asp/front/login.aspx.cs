@@ -21,5 +21,27 @@ namespace Domain.asp.front
         {
 
         }
+
+        protected void LoginBtn_Click(object sender, EventArgs e)
+        {
+            if (Sn.Value == "") {
+                ErrorInfos.InnerHtml = "用户名不能为空";
+                return;
+            }
+            else if (Password.Value == "") {
+                ErrorInfos.InnerHtml = "密码不能为空";
+                return;
+            }
+            StudentService ss = new StudentService();
+            Student s = ss.login(Sn.Value, Password.Value);
+            if (s == null)
+            {
+               ErrorInfos.InnerHtml = "用户名或密码错误";
+            }
+            else {
+                Session["user"] = s;
+                Response.Redirect("index.aspx");
+            }
+        }
     }
 }

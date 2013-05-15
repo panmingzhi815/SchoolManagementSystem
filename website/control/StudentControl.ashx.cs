@@ -51,8 +51,8 @@ namespace Domain.control
                 case "getStudent":
                     getStudent();
                     break;
-                case "login":
-                    login();
+                case "updatePassword":
+                    updatePassword();
                     break;
                 default:
                     context.Response.Write("-1");
@@ -216,18 +216,16 @@ namespace Domain.control
 
         }
 
-        public void login() {
-            string Sn = context.Request.Form.Get("Sn");
-            string Password = context.Request.Form.Get("Password");
-            StudentService ss = new StudentService();
-            Student s = ss.login(Sn,Password);
-            if (s != null)
-            {
-                context.Session["user"] = s;
-                context.Server.Transfer("../asp/front/score.aspx");
+        public void updatePassword() {
+            try {
+                string Sn = context.Request.Form.Get("Sn");
+                string Password = context.Request.Form.Get("Password");
+                StudentService ss = new StudentService();
+                ss.updatePassword(Sn, Password);
+                context.Response.Write("1");
             }
-            else {
-                context.Server.Transfer("../asp/front/login.aspx");
+            catch (Exception e) {
+                context.Response.Write("0");
             }
         }
 

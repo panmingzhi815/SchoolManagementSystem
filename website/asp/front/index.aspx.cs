@@ -20,6 +20,10 @@ namespace Domain
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Student s = (Student)Session["user"];
+            if (s != null) {
+                welcomeInfo.InnerHtml = "欢迎你," + s.Name;
+            }
             DepartmentService ds = new DepartmentService();
 
             IList<School> schoolList =  ds.getSchoolList();

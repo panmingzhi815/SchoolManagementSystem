@@ -25,15 +25,9 @@
         margin: 0 auto 20px;
         background-color: #fff;
         border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
       }
       .form-signin .form-signin-heading,
-      .form-signin .checkbox {
+      {
         margin-bottom: 10px;
       }
       .form-signin input[type="text"],
@@ -49,18 +43,19 @@
   </head>
 
   <body>
-
-    <div class="container">
-
-      <form class="form-signin" action="../../control/StudentControl.ashx" method="post">
+    <div class="span4"></div>
+    <div class="container span4">
+        <form id="form1" runat="server">
         <h2 class="form-signin-heading">请先登陆</h2>
         <input name="method" value="login" type="hidden" />
-        <input id="Sn" name="Sn" type="text" class="input-block-level" placeholder="用户名">
-        <input  id="Password" name="Password" type="password" class="input-block-level" placeholder="密码">
-        <button class="btn btn-large btn-primary" type="submit">登陆</button>
-      </form>
+        <input id="Sn" runat="server" type="text" class="input-block-level" placeholder="用户名">
+        <input  id="Password"  runat="server" type="password" class="input-block-level" placeholder="密码">
+        <p id="ErrorInfos" runat="server" class="help-block"></p>
+        <asp:Button ID="LoginBtn" runat="server" Text="登陆" 
+            class="btn btn-large btn-primary" onclick="LoginBtn_Click"/>
+        </form>
     </div>
-
+    <div class="span4"></div>
   </body>
 </html>
 

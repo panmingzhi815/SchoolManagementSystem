@@ -60,5 +60,21 @@ namespace DataService.service.dao
                 return c.UniqueResult() == null ? null : (Student)c.UniqueResult();
             }
         }
+
+        public void updatePassword(string Sn, string Password) {
+            object o = null;
+            using (ISession session = getSession())
+            {
+                ICriteria c = session.CreateCriteria(typeof(Student));
+                c.Add(Restrictions.Eq("Sn", Sn));
+                o = c.UniqueResult();
+            }
+            if (o != null)
+            {
+                Student s = (Student)o;
+                s.Password = Password;
+                save(s);
+            }
+        }
     }
 }

@@ -55,15 +55,26 @@
 
     <div class="container-narrow">
 
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">主页</a></li>
-          <li><a href="login.aspx">成绩查询</a></li>
-        </ul>
-        <h3 class="muted">湖北工程学院</h3>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#" id="welcomeInfo" runat="server">游客你好</a>
+          <div class="nav-collapse pull-right">
+            <ul class="nav">
+              <li class="active"><a href="index.aspx">首页</a></li>
+              <li><a href="score.aspx">考试成绩</a></li>
+              <li><a href="info.aspx">基础资料</a></li>
+              <li><a href="login.aspx" id="loginBtn" runat="server">登陆</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-
-      <hr>
+    </div>
 
       <div class="jumbotron" runat="server" id="SchoolContent">
         <%--<h1>湖北工程学院欢迎您!</h1>

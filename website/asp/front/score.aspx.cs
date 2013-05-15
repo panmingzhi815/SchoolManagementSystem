@@ -22,6 +22,7 @@ namespace Domain.asp.front
         {
             Student s = (Student)Session["user"];
             if (s != null) {
+                welcomeInfo.InnerHtml = "欢迎你," + s.Name;
                 ExamResultService ers = new ExamResultService();
                 IList<ExamResult> examResultList = ers.getExamResultByStudent(s);
                 string content = "<center><h2>"+s.Name+" 同学成绩单</h2></center>";
@@ -44,6 +45,10 @@ namespace Domain.asp.front
                     content += "</tr></tbody></table>";
                 }
                 TableContent.InnerHtml = content;
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
             }
         }
     }
